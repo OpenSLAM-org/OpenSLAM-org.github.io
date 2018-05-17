@@ -1,0 +1,141 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html> 
+
+<head>
+<title>OpenSLAM.org</title> 
+<meta name="description" content="OpenSLAM.org">
+<meta name="keywords"    content="OpenSLAM SLAM robot mapping localization research">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+<meta name="robots" content="index">
+<meta http-equiv="expires" content="Sat, 01 Dec 2001 00:00:00 GMT">
+<link rel="stylesheet" type="text/css" href="style2.css">
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-27001887-1']);
+  _gaq.push(['_setDomainName', 'openslam.org']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+<body bgcolor="#FFFFFF">
+<br>
+<br>
+<center>
+<img src="openslam-logo.png" border=0>
+</center>
+<br>
+<center><h2>SSA: Sparse Surface Adjustment 2D</h2></center><center><table width=700> <tr><tr><td colspan=2>
+
+    SSA is an open-source C++ tool for post optimization of graph-based 2D SLAM
+    solutions. SSA iteratively refines robot poses and 2D surface points in one 
+    global graph optimization system and produces highly accurate 2D laser maps.
+    Laser scans are not treated as rigid body and might be refined during the
+    optimization procedure. This leads to substantially less accumulated noise 
+    in the resulting map. SSA uses g2o as optimization back-end. 
+  
+</td></tr>
+</td></tr>
+ <tr><td colspan=2>
+
+<br><b>Authors</b><br>
+<a href="http://www.informatik.uni-freiburg.de/~ruhnke" target="_blank">Michael Ruhnke</a>;
+<a href="http://www.informatik.uni-freiburg.de/~kuemmerl" target="_blank">Rainer Kuemmerle</a>;
+<a href="http://www.informatik.uni-freiburg.de/~grisetti" target="_blank">Giorgio Grisetti</a>;
+<a href="http://www.informatik.uni-freiburg.de/~burgard/" target="_blank">Wolfram Burgard</a>;
+</td></tr>
+
+<tr><td colspan=2>
+
+<br><b>Get the Source Code via SVN</b><br>
+svn co <a target="_blank" href="https://svn.openslam.org/data/svn/ssa2d">https://svn.openslam.org/data/svn/ssa2d</a><br>
+</td></tr>
+<tr><td colspan=2>
+
+<br> <b>Long Description</b><br>
+  
+    The goal of Sparse Surface Adjustment 2D is to learn highly accurate 
+    laser-based maps. Therefore it treats the overall mapping problem as a joint 
+    optimization problem over robot poses and laser points. 
+    Under the assumption that a laser range finder measures points sampled 
+    from a regular surface this algorithm utilize an improved likelihood 
+    function that accounts for two phenomena affecting the laser measurements 
+    that are often neglected: the conic shape of the laser beam and the 
+    incidence angle of a beam on the underlying surface. A maximum likelihood
+    configuration of all robot poses and all points is computed with g2o.
+    Since the data association is hard to solve on points only, SSA iteratively 
+    updates the data association and local surface characteristics.
+    
+    Sample datasets can be downloaded at:
+    http://www.informatik.uni-freiburg.de/~ruhnke/
+  
+<br><br></td></tr>
+<tr><td colspan=2>
+
+<br> <b>Input Data </b><br>  
+    Nodes and edges of a graph.
+  
+</td></tr>
+<tr><td colspan=2>
+
+<br> <b>Logfile Format</b><br>  
+    A set of simple text messages to represent nodes and edges of the graph.
+    Note that examples files are in the repository. See folder data.
+  
+</td></tr>
+<tr><td colspan=2>
+
+<br> <b>Type of Map</b><br>  Graphs (nodes and edge)
+</td></tr>
+<tr><td colspan=2>
+
+<br> <b> Hardware/Software Requirements</b><br> 
+
+    Developed under Linux (GCC). Tested under Linux.
+    CMake is needed for building. Uses SuiteSparse if available, requires Qt4
+    and libQGLViewer for the GUI. Furthermore libkdtree++ is needed.
+    Includes a copy of g2o.
+  <br>
+</td></tr>
+<tr><td colspan=2>
+
+<br> <b>Papers Describing the Approach</b>
+<br>   Michael Ruhnke, Rainer Kuemmerle, Giorgio Grisetti and Wolfram Burgard:
+   Highly Accurate Maximum Likelihood Laser Mapping by Jointly Optimizing Laser Points and Robot Poses,
+   IEEE International Conference on Robotics and Automation (ICRA), 2011  (<a href="http://ais.informatik.uni-freiburg.de/publications/papers/ruhnke11icra.pdf" target="_blank">link</a>)<br>
+</td></tr>
+<tr><td colspan=2>
+
+<br><b>License Information</b><br>
+This software is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.<br> 
+The authors allow the users of OpenSLAM.org to use and modify the source code for their own research. Any commercial application, redistribution, etc has to be arranged between users and authors individually and is not covered by OpenSLAM.org.<br><br>
+ssa is licenced under LGPL v3
+</td></tr>
+<tr><td colspan=2>
+<br>
+<b>Further Information</b><br>
+ 
+    C++ code, well-coded, compact, efficient.
+   
+</td></tr>
+</td></tr>
+<tr><td colspan=2>
+<br><br>
+ *** OpenSLAM.org is not responsible for the content of this webpage *** <br>
+ *** Copyright and V.i.S.d.P.: 
+<a href="http://www.informatik.uni-freiburg.de/~ruhnke" target="_blank">Michael Ruhnke</a>;
+<a href="http://www.informatik.uni-freiburg.de/~kuemmerl" target="_blank">Rainer Kuemmerle</a>;
+<a href="http://www.informatik.uni-freiburg.de/~grisetti" target="_blank">Giorgio Grisetti</a>;
+<a href="http://www.informatik.uni-freiburg.de/~burgard/" target="_blank">Wolfram Burgard</a>;
+ *** <br>
+</td></tr>
+</table></center>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html> 
+
+<head>
+<title>OpenSLAM.org</title> 
+<meta name="description" content="OpenSLAM.org">
+<meta name="keywords"    content="OpenSLAM SLAM robot mapping localization research">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+<meta name="robots" content="index">
+<meta http-equiv="expires" content="Sat, 01 Dec 2001 00:00:00 GMT">
+<link rel="stylesheet" type="text/css" href="style2.css">
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-27001887-1']);
+  _gaq.push(['_setDomainName', 'openslam.org']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+<body bgcolor="#FFFFFF">
+<br>
+<br>
+<center>
+<img src="openslam-logo.png" border=0>
+</center>
+<br>
+<center><h2>Unscented FastSLAM</h2></center><center><table width=700> <tr><tr><td colspan=2>
+
+     Unscented fastslam is a Rao-Backwellized unscented particle filter that uses the unscented filter for both the localization and mapping.
+  
+</td></tr>
+</td></tr>
+ <tr><td colspan=2>
+
+<br><b>Authors</b><br>
+<a href="http://rnb.postech.ac.kr" target="_blank">Chanki Kim</a>;
+</td></tr>
+
+<tr><td colspan=2>
+
+<br><b>Get the Source Code via SVN</b><br>
+svn co <a target="_blank" href="https://svn.openslam.org/data/svn/ufastslam">https://svn.openslam.org/data/svn/ufastslam</a><br>
+</td></tr>
+<tr><td colspan=2>
+
+<br> <b>Long Description</b><br>
+       
+Fastslam is one of the robust incremental mapping algorithm that can deal with multimodal distribution. However it suffers from two important limitations which are the derivation of the Jacobian matrices and the linear approximations of nonlinear functions. The latter makes the filter inconsistent. Another challenge in the particle filtering slam is to reduce the number of particles while maintaining the estimation accuracy. This code provides a modified algorithm based on the scaled unscented transformation. It overcomes the limitations of the Fastslam algorithm by directly using linear relations. This approach improves the filter consistency and state estimation accuracy, in other words it requires smaller number of particles than the Fastslam to satisfy the similar performance.   
+  
+<br><br></td></tr>
+<tr><td colspan=2>
+
+<br> <b>Input Data </b><br>   This code imports the  Victoria park dataset which includes laser range and odometry information. The perception range of the laser is restricted from 80 meters to 30 meters. This code is not optimized and uses a linear search in the data association.
+  
+</td></tr>
+<tr><td colspan=2>
+
+<br> <b>Logfile Format</b><br>  
+    --
+  
+</td></tr>
+<tr><td colspan=2>
+
+<br> <b>Type of Map</b><br>  feature maps
+</td></tr>
+<tr><td colspan=2>
+
+<br> <b> Hardware/Software Requirements</b><br> 
+
+    Windows OS, matlab 20xx
+  <br>
+</td></tr>
+<tr><td colspan=2>
+
+<br> <b>Papers Describing the Approach</b>
+<br>   Chanki Kim, Rathinasamy Sakthivel, and Wan Kyun Chung:
+   Unscented FastSLAM: A Robust and Efficient Solution to the SLAM Problem,
+   IEEE Transactions on Robotics, Volume 24, Issue 4, pages 808-820, Aug. 2008  (<a href="https://www.researchgate.net/publication/3450640_Unscented_FastSLAM_A_Robust_and_Efficient_Solution_to_the_SLAM_Problem" target="_blank">link</a>)<br>
+<br>   Chanki Kim, Hyoungkyun Kim, and Wan Kyun Chung:
+   Exactly Rao-Blackwellized Unscented Particle Filters for SLAM,
+   In Proc. of the IEEE International Conference on Robotics and Automation (ICRA), Sahnghai, China, pages 3589-3594, May 2011<br>
+</td></tr>
+<tr><td colspan=2>
+
+<br><b>License Information</b><br>
+This software is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.<br> 
+The authors allow the users of OpenSLAM.org to use and modify the source code for their own research. Any commercial application, redistribution, etc has to be arranged between users and authors individually and is not covered by OpenSLAM.org.<br><br>
+Unscented fastslam is licensed under the Creative Commons
+  (Attribution-NonCommercial-ShareAlike).
+</td></tr>
+</td></tr>
+<tr><td colspan=2>
+<br><br>
+ *** OpenSLAM.org is not responsible for the content of this webpage *** <br>
+ *** Copyright and V.i.S.d.P.: 
+<a href="http://rnb.postech.ac.kr" target="_blank">Chanki Kim</a>;
+ *** <br>
+</td></tr>
+</table></center>
+</body>
+</html>

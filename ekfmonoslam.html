@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html> 
+
+<head>
+<title>OpenSLAM.org</title> 
+<meta name="description" content="OpenSLAM.org">
+<meta name="keywords"    content="OpenSLAM SLAM robot mapping localization research">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+<meta name="robots" content="index">
+<meta http-equiv="expires" content="Sat, 01 Dec 2001 00:00:00 GMT">
+<link rel="stylesheet" type="text/css" href="style2.css">
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-27001887-1']);
+  _gaq.push(['_setDomainName', 'openslam.org']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+<body bgcolor="#FFFFFF">
+<br>
+<br>
+<center>
+<img src="openslam-logo.png" border=0>
+</center>
+<br>
+<center><h2>EKFmonocularSLAM</h2></center><center><table width=700> <tr><tr><td colspan=2>
+
+	EKFmonocularSLAM contains Matlab code for EKF SLAM from a 6 DOF motion monocular image sequence. The algorithm takes as input a monocular image sequence and its camera calibration and outputs the estimated camera motion and a sparse map of salient point features. The code includes state-of-the-art contributions to EKF SLAM from a monocular camera: inverse depth parametrization for 3D points and efficient 1-point RANSAC for spurious rejection.
+        
+<br><a href="http://webdiis.unizar.es/~jcivera/code/1p-ransac-ekf-monoslam.html" target="_blank">Further information</a>
+</td></tr>
+</td></tr>
+ <tr><td colspan=2>
+
+<br><b>Authors</b><br>
+<a href="http://webdiis.unizar.es/~jcivera" target="_blank">Javier Civera</a>;
+<a href="http://webdiis.unizar.es/~josemari" target="_blank">J. M. M. Montiel</a>;
+</td></tr>
+
+<tr><td colspan=2>
+
+<br><b>Get the Source Code via SVN</b><br>
+svn co <a target="_blank" href="https://svn.openslam.org/data/svn/ekfmonoslam">https://svn.openslam.org/data/svn/ekfmonoslam</a><br>
+</td></tr>
+<tr><td colspan=2>
+
+<br> <b>Long Description</b><br>
+  
+        This code contains a complete EKF SLAM system from a monocular sequence, taking as input a sequence from a monocular camera and estimating the 6 DOF camera motion and a sparse 3D map of salient point features. The key contributions in this code are two:<br><br>
+
+1) INVERSE DEPTH POINT PARAMETRIZATION. This point model suits the projective nature of the camera sensor, allowing to code in the SLAM map very distant points naturally captured by a camera. It is also able to code infinite depth uncertainty, allowing undelayed initialization of point features from the first frame they were seen. At any step, the measurement equation shows the high degree of linearity demanded by the EKF.<br><br>
+
+2) 1-POINT RANSAC. Robust data association has proven to be a key issue in any SLAM algorithm. 1-Point RANSAC is an algorithm based on traditional random sampling but adapted to the EKF. Specifically, it exploits probabilistic information from the EKF to greatly improve the efficiency over standard RANSAC.
+        
+<br><br></td></tr>
+<tr><td colspan=2>
+</td></tr>
+<tr><td colspan=2>
+</td></tr>
+<tr><td colspan=2>
+</td></tr>
+<tr><td colspan=2>
+
+<br> <b> Hardware/Software Requirements</b><br> 
+
+	Matlab.
+	<br>
+</td></tr>
+<tr><td colspan=2>
+
+<br> <b>Papers Describing the Approach</b>
+<br>   Javier Civera, Oscar G. Grasa, Andrew J. Davison and J. M. M. Montiel:
+   1-Point RANSAC for EKF Filtering. Application to Real-Time Structure from Motion and Visual Odometry ,
+   Journal of Field Robotics, 2010  (<a href="http://webdiis.unizar.es/~jcivera/papers/civera_etal_jfr10.pdf" target="_blank">link</a>)<br>
+<br>   Javier Civera, Andrew J. Davison, J. M. M. Montiel:
+   Inverse Depth Parametrization for Monocular SLAM ,
+   IEEE Transactions on Robotics, 2008  (<a href="http://webdiis.unizar.es/~jcivera/papers/civera_etal_tro08.pdf" target="_blank">link</a>)<br>
+</td></tr>
+<tr><td colspan=2>
+
+<br><b>License Information</b><br>
+This software is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.<br> 
+The authors allow the users of OpenSLAM.org to use and modify the source code for their own research. Any commercial application, redistribution, etc has to be arranged between users and authors individually and is not covered by OpenSLAM.org.<br><br>
+EKFmonocularSLAM is licenced under GNU GPL. See http://www.gnu.org/copyleft/gpl.html for details.
+</td></tr>
+</td></tr>
+<tr><td colspan=2>
+<br><br>
+ *** OpenSLAM.org is not responsible for the content of this webpage *** <br>
+ *** Copyright and V.i.S.d.P.: 
+<a href="http://webdiis.unizar.es/~jcivera" target="_blank">Javier Civera</a>;
+<a href="http://webdiis.unizar.es/~josemari" target="_blank">J. M. M. Montiel</a>;
+ *** <br>
+</td></tr>
+</table></center>
+</body>
+</html>

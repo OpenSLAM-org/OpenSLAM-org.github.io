@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html> 
+
+<head>
+<title>OpenSLAM.org</title> 
+<meta name="description" content="OpenSLAM.org">
+<meta name="keywords"    content="OpenSLAM SLAM robot mapping localization research">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+<meta name="robots" content="index">
+<meta http-equiv="expires" content="Sat, 01 Dec 2001 00:00:00 GMT">
+<link rel="stylesheet" type="text/css" href="/style2.css">
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-27001887-1']);
+  _gaq.push(['_setDomainName', 'openslam.org']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+</head>
+<body bgcolor="#FFFFFF">
+<br>
+<br>
+<center>
+<img src="/openslam-logo.png" border=0><br>
+<b>- Tools -</b>
+</center>
+<br>
+<center><h2>EVG-Thin: A Thinning Approximation to the Extended Voronoi Graph</h2></center><center><table width=700> <tr><tr><td colspan=2>
+
+This code implements an extension of the pixel-based "thinning" algorithm that finds skeletons of bitmaps.
+	
+<br><a href="http://www.cs.utexas.edu/users/qr/software/evg-thin.html" target="_blank">Further information</a>
+</td></tr>
+</td></tr>
+ <tr><td colspan=2>
+
+<br><b>Authors</b><br>
+<a href="http://www.cs.utexas.edu/~pbeeson" target="_blank">Patrick Beeson</a>;
+</td></tr>
+
+<tr><td colspan=2>
+
+<br><b>Get the Source Code via SVN</b><br>
+svn co <a href="https://svn.openslam.org/data/svn/evg-thin">https://svn.openslam.org/data/svn/evg-thin</a><br>
+</td></tr>
+<tr><td colspan=2>
+
+<br> <b>Long Description</b><br>
+  
+The classic thinning algorithm is a fast approximation of the Voronoi diagram; however, this software also approximates the Extended Voronoi graph. This code was written to be applied in real-time to occupancy grids (from the mobile robotics literature) where cells are either occupied, free, or unknown, but it should work on bitmap images for other domains.
+	
+<br><br></td></tr>
+<tr><td colspan=2>
+</td></tr>
+<tr><td colspan=2>
+</td></tr>
+<tr><td colspan=2>
+
+<br> <b> Hardware/Software Requirements</b><br> 
+
+	Linux/Unix, G++ 3.3/4.0.x
+	<br>
+</td></tr>
+<tr><td colspan=2>
+
+<br> <b>Papers Describing the Approach</b>
+<br>   T. Y. Zhang and C. Y. Suen:
+   A Fast Parallel Algorithm for Thinning Digital Patterns,
+   Communications of the ACM, vol. 27, no. 3, pp. 236-239, 1984  (<a href="http://portal.acm.org/citation.cfm?id=357994.358023&dl=portal&dl=ACM&idx=357994&part=periodical&WantType=periodical&title=Communications%20of%20the%20ACM&CFID=11111111&CFTOKEN=2222222" target="_blank">link</a>)<br>
+<br>   Patrick Beeson, Nicholas K. Jong, and Benjamin Kuipers:
+   Towards autonomous topological place detection using the Extended Voronoi Graph,
+   IEEE International Conference on Robotics and Automaton (ICRA), 2005  (<a href="http://www.cs.utexas.edu/users/qr/papers/Beeson-etal-icra-05.html" target="_blank">link</a>)<br>
+</td></tr>
+<tr><td colspan=2>
+
+<br><b>License Information</b><br>
+This software is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.<br> 
+The authors allow the users of OpenSLAM.org to use and modify the source code for their own research. Any commercial application, redistribution, etc has to be arranged between users and authors individually and is not covered by OpenSLAM.org.<br><br>
+This program is released under the GNU General Public License (GPL).  Copyright (C) 2006 - Patrick Beeson
+</td></tr>
+</td></tr>
+<tr><td colspan=2>
+<tr><td colspan=2>
+<br><br>
+ *** OpenSLAM.org is not responsible for the content of this webpage *** <br>
+ *** Copyright and V.i.S.d.P.: 
+<a href="http://www.cs.utexas.edu/~pbeeson" target="_blank">Patrick Beeson</a>;
+ *** <br>
+</td></tr>
+</table></center>
+</body>
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html> 
+
+<head>
+<title>OpenSLAM.org</title> 
+<meta name="description" content="OpenSLAM.org">
+<meta name="keywords"    content="OpenSLAM SLAM robot mapping localization research">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+<meta name="robots" content="index">
+<meta http-equiv="expires" content="Sat, 01 Dec 2001 00:00:00 GMT">
+<link rel="stylesheet" type="text/css" href="style2.css">
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-27001887-1']);
+  _gaq.push(['_setDomainName', 'openslam.org']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+<body bgcolor="#FFFFFF">
+<br>
+<br>
+<center>
+<img src="openslam-logo.png" border=0>
+</center>
+<br>
+<center><h2>TreeMap</h2></center><center><table width=700> <tr><tr><td colspan=2>
+
+	  Treemap is an algorithm for feature based Gaussian
+	  SLAM. Actually it is an algorithm for incremental
+	  probabilistic inference in a high dimensional Gaussian
+	  defined as the product of many low dimensional Gaussians
+	  (incremental least square). Treemap can handle different
+	  variants of SLAM. Everything, that's specific to a SLAM
+	  variant or even to SLAM as a problem is contained in a small
+	  driver layer that can be adapted by the user.<br><br>
+
+          This work has been supported by the Deutsche Forschungs Gemeinschaft,
+          grant SFB-TR 8 / Spatial Cognition.
+	
+<br><a href="http://openslam.org/treemap.html" target="_blank">Further information</a>
+</td></tr>
+</td></tr>
+ <tr><td colspan=2>
+
+<br><b>Authors</b><br>
+<a href="http://www.informatik.uni-bremen.de/agebv/en/UdoFrese" target="_blank">Udo Frese</a>;
+</td></tr>
+
+<tr><td colspan=2>
+
+<br><b>Get the Source Code via SVN</b><br>
+svn co <a target="_blank" href="https://svn.openslam.org/data/svn/treemap">https://svn.openslam.org/data/svn/treemap</a><br>
+</td></tr>
+<tr><td colspan=2>
+
+<br> <b>Long Description</b><br>
+  
+          The main contribution of treemap is extremely efficient
+          Gaussian inference. For instance, it can compute a
+          full probabilistic update on a map with 1032271 2D features
+          in 442ms. So, to put it in a nutshell: Treemap does the same
+          job as Levenberg-Marquardt, only much faster.<br><br>
+
+	  The treemap algorithm as well as this implementation
+	  consists of two layers. The treemap backend contains nearly
+	  all the difficulties of the algorithm. It performs inference
+	  in a high dimensional Gaussian defined as the product of
+	  many low-dimensional Gaussians. The low-dimensional
+	  Gaussians correspond to measurements. The second layer, the
+	  treemap driver converts the original measurements into these
+	  low dimensional Gaussians, basically by linearizing the
+	  measurement equations and passes them to the treemap
+	  backend. It also defines some application dependent
+	  approximation policy. The backend then incrementally
+	  computes the mean of the resulting Gaussian, which is in
+	  turn converted by the treemap driver into a map estimate. We
+	  have implemented drivers for 2D feature based SLAM, 2D/3DOF
+	  pose relation based SLAM and 3D/6DOF feature based SLAM
+	  without odometry.<br><br>
+
+          So, as a user, you have to provide a set of measurements as
+          a vector of real numbers, i.e. you have to do your own
+          feature detection on the raw sensor data. And you have to
+          provide the identity of features to which the measurements
+          refer (data-association). You also have to provide
+          covariance (uncertainties) for these measurements. This is
+          often a hand tuned parameter. If you are doing one of the
+          above mentioned SLAM variants, that's it. Otherwise you also
+          have to implement your own driver that linearizes
+          measurement equations and defines an approximation policy
+          for the back-end.<br><br>
+
+          Treemap provides a map estimate. It could in principle
+          provide covariance information which would be useful for
+          data-association. However, this is not implemented yet.
+	
+<br><br></td></tr>
+<tr><td colspan=2>
+<b>Example Images</b><br>
+</td></tr>
+<tr>
+<td colspan=2><a href=" 
+                   http://www.informatik.uni-bremen.de/agebv/en/ClosingAMillionLandmarksLoop
+                "><img src="
+                   http://www.informatik.uni-bremen.de/agebv/downloads/openSLAM/fresemillionlandmarks.jpg.png
+                " border=0><a/><br>
+                   Video showing how treemap closes a loop with a million landmarks.
+                </td>
+</tr>
+<tr>
+<td colspan=2><a href="
+                http://www.informatik.uni-bremen.de/agebv/en/TreemapOLogNAlgorithm/Experiment2
+             "><img src=" 
+                http://www.informatik.uni-bremen.de/agebv/downloads/openSLAM/mobilerobot_mappingdlrbuilding_240803.jpg
+             " border=0><a/><br>
+                 Video showing a mobile robot mapping a building with treemap.
+             </td>
+</tr>
+<tr>
+<td colspan=2><a href=""><img src="
+                  http://www.informatik.uni-bremen.de/agebv/downloads/openSLAM/figure301c.png
+              " border=0><a/><br>
+                  Two layered architecture with treemap back-end and driver.
+              </td>
+</tr>
+<tr><td colspan=2>
+
+<br> <b>Input Data </b><br>  
+	  The input to treemap are measurements with covariance and
+	  known data-association. For 2D feature SLAM the input is the
+	  observed 2D position of the feature relative to the robot, a
+	  covariance (uncertainty) of that position and the id of the
+	  feature observed. Additionally for every step of the robot
+	  the 2D/3DOF pose of the robot after the step relative to the
+	  pose before the step must be given with covariance. For 2D
+	  pose relation based SLAM, a graph of 2D/3DOF poses is given,
+	  where each node corresponds to the pose of the robot at some
+	  point of time and an edge defines a measurement for one pose
+	  relative to another pose obtained from scan-matching or
+	  odometry. For 3D/6DOF SLAM the input is a 3D feature
+	  position relative to the robot with the identity of the
+	  feature. The current driver for 3D SLAM does not incorporate
+	  inertial data or any form of odometry.
+	
+</td></tr>
+<tr><td colspan=2>
+
+<br> <b>Logfile Format</b><br>  
+	  Proprietary human readable ASCII file.
+	
+</td></tr>
+<tr><td colspan=2>
+
+<br> <b>Type of Map</b><br>  
+	  The resulting map is a vector of feature positions (2D/3D
+	  feature based SLAM) or robot poses (2D/3DOF pose relation
+	  SLAM).
+	
+</td></tr>
+<tr><td colspan=2>
+
+<br> <b> Hardware/Software Requirements</b><br> 
+
+	  The code is entirely written in C++. It has been checked to
+          compile with GCC 4.1.2. CMake is needed as a build tool,
+          LAPACK for numerical computation, and gfortran for linking
+          the LAPACK package.
+	<br>
+</td></tr>
+<tr><td colspan=2>
+
+<br> <b>Papers Describing the Approach</b>
+<br>   
+                   U. Frese, L. Schroeder
+                :
+   Closing a Million-Landmarks Loop,
+    
+                     Proceedings of the IEEE/RSJ International Conference on Intelligent Robots and Systems, Beijing
+                , 2006  (<a href="
+                 http://www.informatik.uni-bremen.de/agbkb/publikationen/bibsearch/detail_e.htm?pk_int=1991
+                " target="_blank">link</a>)<br>
+<br>   U. Frese:
+   Efficient 6-DOF SLAM with Treemap as a Generic Backend,
+   
+                    Proceedings of the Internation Conference on Robotics and Automation, Rome
+                , 2007  (<a href="
+                http://www.informatik.uni-bremen.de/agbkb/publikationen/bibsearch/detail_e.htm?pk_int=2263
+                " target="_blank">link</a>)<br>
+</td></tr>
+<tr><td colspan=2>
+
+<br><b>License Information</b><br>
+This software is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.<br> 
+The authors allow the users of OpenSLAM.org to use and modify the source code for their own research. Any commercial application, redistribution, etc has to be arranged between users and authors individually and is not covered by OpenSLAM.org.<br><br>
+
+          Treemap is licenced under the Creative Commons
+          (Attribution-NonCommercial-ShareAlike).
+	
+</td></tr>
+<tr><td colspan=2>
+<br>
+<b>Further Information</b><br>
+ 
+           The code contains a simulator for extremely large 2D SLAM
+           datasets that have a more realistic topology than mowing
+           the lawn. This may have an interest of its own.
+	 
+</td></tr>
+</td></tr>
+<tr><td colspan=2>
+<br><br>
+ *** OpenSLAM.org is not responsible for the content of this webpage *** <br>
+ *** Copyright and V.i.S.d.P.: 
+<a href="http://www.informatik.uni-bremen.de/agebv/en/UdoFrese" target="_blank">Udo Frese</a>;
+ *** <br>
+</td></tr>
+</table></center>
+</body>
+</html>

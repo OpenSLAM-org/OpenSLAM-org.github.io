@@ -1,0 +1,124 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html> 
+
+<head>
+<title>OpenSLAM.org</title> 
+<meta name="description" content="OpenSLAM.org">
+<meta name="keywords"    content="OpenSLAM SLAM robot mapping localization research">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+<meta name="robots" content="index">
+<meta http-equiv="expires" content="Sat, 01 Dec 2001 00:00:00 GMT">
+<link rel="stylesheet" type="text/css" href="/style2.css">
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-27001887-1']);
+  _gaq.push(['_setDomainName', 'openslam.org']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+</head>
+<body bgcolor="#FFFFFF">
+<br>
+<br>
+<center>
+<img src="/openslam-logo.png" border=0><br>
+<b>- Tools -</b>
+</center>
+<br>
+<center><h2>People2D: realtime people detection in 2D range data</h2></center><center><table width=700> <tr><tr><td colspan=2>
+
+	People2D provides an efficient implementation of the people detector in 2D data originally 
+	developed in Human Detection using Multimodal and Multidimensional Features (ICRA 2008). 
+	It includes training and detection module C++ source code and example files. 
+	The code has been written in a way that it is very easy to modify / hack. 
+	NO background subtraction is needed with this method. 
+	The detector runs at 2KHz on a fast computer (i7 CPU - 1.6Ghz) 
+        
+</td></tr>
+</td></tr>
+ <tr><td colspan=2>
+
+<br><b>Authors</b><br>
+<a href="http://www.informatik.uni-freiburg.de/~spinello" target="_blank">Luciano Spinello</a>;
+</td></tr>
+
+<tr><td colspan=2>
+
+<br><b>Get the Source Code via SVN</b><br>
+svn co <a href="https://svn.openslam.org/data/svn/people2d">https://svn.openslam.org/data/svn/people2d</a><br>
+</td></tr>
+<tr><td colspan=2>
+
+<br> <b>Long Description</b><br>
+  
+        People2D is a principled approach for detecting people in 2D range data.
+        It is based on discriminative classification of 
+        a rich geometrical/statistical feature-set for describing  people in 2D range data.
+		The method first segments 2D range data via jump-distance clustering, computes descriptors,
+		and runs Adaboost prediction. The approach allows detections in single frames, without the need of 
+		tracking and background-learning. It can been used in indoor, outdoor, from a static or a moving platform. 
+		Appropriate training data must be provided to the algorithm to perform well in all cases.
+		For showing the functionalities of the software, an uncluttered indoor toy data set 
+		containing training / testing files is provided. 
+		Tools for visualization, quantitative performance evaluation 
+		(precision-recall curves) are also included in the package.
+		It is considered state-of-the-art in the field of 2D detection from single frames (03/2011).
+        
+<br><br></td></tr>
+<tr><td colspan=2>
+
+<br> <b>Input Data </b><br>  
+	Logfile of 2D range data
+	
+</td></tr>
+<tr><td colspan=2>
+</td></tr>
+<tr><td colspan=2>
+
+<br> <b> Hardware/Software Requirements</b><br> 
+
+	Developed under Linux (GCC). Tested under Linux. Requires GSL.
+	<br>
+</td></tr>
+<tr><td colspan=2>
+
+<br> <b>Papers Describing the Approach</b>
+<br>   L.Spinello, R.Siegwart:
+   Human Detection using Multimodal and Multidimensional Features.,
+   IEEE International Conference on Robotics and Automation (ICRA), 2008  (<a href="http://www.informatik.uni-freiburg.de/~spinello/spinello08human.pdf" target="_blank">link</a>)<br>
+</td></tr>
+<tr><td colspan=2>
+
+<br><b>License Information</b><br>
+This software is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.<br> 
+The authors allow the users of OpenSLAM.org to use and modify the source code for their own research. Any commercial application, redistribution, etc has to be arranged between users and authors individually and is not covered by OpenSLAM.org.<br><br>
+People2D is licenced under Creative Commons BY-NC-SA 3.0
+</td></tr>
+<tr><td colspan=2>
+<br>
+<b>Further Information</b><br>
+ 
+	C++ code, well-coded, compact, efficient.
+	 
+</td></tr>
+</td></tr>
+<tr><td colspan=2>
+<tr><td colspan=2>
+<br><br>
+ *** OpenSLAM.org is not responsible for the content of this webpage *** <br>
+ *** Copyright and V.i.S.d.P.: 
+<a href="http://www.informatik.uni-freiburg.de/~spinello" target="_blank">Luciano Spinello</a>;
+ *** <br>
+</td></tr>
+</table></center>
+</body>
+</html>

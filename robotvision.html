@@ -1,0 +1,188 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html> 
+
+<head>
+<title>OpenSLAM.org</title> 
+<meta name="description" content="OpenSLAM.org">
+<meta name="keywords"    content="OpenSLAM SLAM robot mapping localization research">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+<meta name="robots" content="index">
+<meta http-equiv="expires" content="Sat, 01 Dec 2001 00:00:00 GMT">
+<link rel="stylesheet" type="text/css" href="style2.css">
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-27001887-1']);
+  _gaq.push(['_setDomainName', 'openslam.org']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+<body bgcolor="#FFFFFF">
+<br>
+<br>
+<center>
+<img src="openslam-logo.png" border=0>
+</center>
+<br>
+<center><h2>RobotVision</h2></center><center><table width=700> <tr><tr><td colspan=2>
+<br><br>
+
+	RobotVision is a library for techniques used on the intersection of robotics and vision.
+	The main focus is visual monocular SLAM. It is written in C++ -- partially using object-oriented and  
+               template meta programming. Thus, most techniques can be easily adapted to other 
+               applications - e.g. range-and-bearing SLAM.
+          
+</td></tr>
+</td></tr>
+ <tr><td colspan=2>
+
+<br><b>Authors</b><br>
+<a href="http://www.doc.ic.ac.uk/~strasdat/" target="_blank">Hauke Strasdat</a>;
+<a href="http://www.doc.ic.ac.uk/~sl203/" target="_blank">Steven Lovegrove</a>;
+<a href="http://www.doc.ic.ac.uk/~ajd/" target="_blank">Andrew J. Davison</a>;
+</td></tr>
+
+<tr><td colspan=2>
+
+<br><b>Get the Source Code via SVN</b><br>
+svn co <a target="_blank" href="https://svn.openslam.org/data/svn/robotvision">https://svn.openslam.org/data/svn/robotvision</a><br>
+</td></tr>
+<tr><td colspan=2>
+
+<br> <b>Long Description</b><br>
+  
+          UPDATE: We made a new visual SLAM library availbe: https://github.com/strasdat/ScaViSLAM/<br><br>
+
+
+	RobotVision (1.1) is out. Among other improvements, the bundle adjustment implementation is much faster now.<br><br>
+
+	RobotVision is a library for techniques used on the intersection of robotics and vision.
+              The current version (1.1) comprises bundle adjustment, feature initialisation 
+               pose-graph optimisation, and 2D/3D visualisation among other things.             <br><br>
+
+              The bundle adjustment class follows the classical approach - the first order sparseness
+              structure is exploited using the Schur complement. However, compared to other
+              straight-forward implementations, it has the following features: The second-order 
+              sparseness structure -- not all landmarks are visible in all frames - is exploited using 
+              sparse Cholesky factorisation (using the CSparse library). Optionally, the implementation
+              supports the use of robust kernels in order to guard against spurious matches. 
+              Also, the implementation generalises over different transformations, landmarks and 
+	      observations using template meta programming.
+              Among others, SE3 pose transformation with 3D Euclidean points and 2D image observations are provided as
+              a default implementation for monocular SLAM. Furthermore, the bundle adjustment class
+              also contains an information filter for inverse depth feature points which can be used 
+              efficiently for feature initialisation within a keyframe-based monocular SLAM framework.<br><br>
+
+              The pose-graph optimisation framework is using Levenberg-Marquardt,
+              whereas the sparse Hessian is dealt with using sparse Cholesky factorisation
+              (CSparse). Again, it generalises over different transformations. Apart from the
+              standard rigid transformation SE3, it also supports 3D similarity transformations
+              Sim3. In other words, it can also deal with scale drift which occurs in monocular SLAM.<br><br>
+
+
+                            
+	       Both, the bundle adjustment class as well as the pose-graph optimisation class uses 
+              Lie theory. Poses transformations (SE3, Sim3) are represented on a manifold/ as a Lie group
+              while incremental updates are done in the tangent space around the identity/Lie algebra.
+              In this way, we achieve a minimal representation during optimisation while ensuring that
+              we are always far from singularities.<br><br>
+
+             2D and 3D visualisation classes are convenient C++ wrappers around OpenGL.
+              
+	
+<br><br></td></tr>
+<tr><td colspan=2>
+<b>Example Images</b><br>
+</td></tr>
+<tr>
+<td colspan=2><a href="http://www.doc.ic.ac.uk/~strasdat/rss2010videos/sphere.avi"><img src="http://www.doc.ic.ac.uk/~strasdat/rss2010videos/sphere_th.png" border=0><a/><br>Simulations using bundle adjustment, pose-graph optimisation and feature initialisation</td>
+</tr>
+<tr><td colspan=2>
+
+<br> <b>Input Data </b><br>  RobotVision is primarily designed as a library, not as a standalone application. However, it comes with some demo applications.
+</td></tr>
+<tr><td colspan=2>
+
+<br> <b>Logfile Format</b><br>   
+	not yet supported
+	
+</td></tr>
+<tr><td colspan=2>
+
+<br> <b>Type of Map</b><br>  Feature maps and pose graphs
+</td></tr>
+<tr><td colspan=2>
+
+<br> <b> Hardware/Software Requirements</b><br> 
+
+               Cross-platform design, but only tested on Linux with GCC  
+	<br>
+
+               CMake
+	<br>
+
+               TooN
+	<br>
+
+               CVD
+	<br>
+
+               CSparse
+	<br>
+
+               OpenCV (optional)
+	<br>
+</td></tr>
+<tr><td colspan=2>
+
+<br><b>Documentation</b>
+<br><a href="http://www.doc.ic.ac.uk/~strasdat/rss2010videos/INSTALL.txt" target="_blank">Please refer to INSTALL.txt for a detailed installation instruction. </a>
+</td></tr>
+<tr><td colspan=2>
+
+<br> <b>Papers Describing the Approach</b>
+<br>   Hauke Strasdat, J. M. M. Montiel, and Andrew J. Davison:
+   Scale Drift-Aware Large Scale Monocular SLAM ,
+   Robotics: Science and Systems, 2010  (<a href="http://www.doc.ic.ac.uk/~ajd/Publications/strasdat_etal_rss2010.pdf" target="_blank">link</a>)<br>
+</td></tr>
+<tr><td colspan=2>
+
+<br><b>License Information</b><br>
+This software is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.<br> 
+The authors allow the users of OpenSLAM.org to use and modify the source code for their own research. Any commercial application, redistribution, etc has to be arranged between users and authors individually and is not covered by OpenSLAM.org.<br><br>
+RobotVision is licensed under the GNU Lesser General Public License version 3 (LGPLv3).
+</td></tr>
+<tr><td colspan=2>
+<br>
+<b>Further Information</b><br>
+ 
+               If you have problems installing the software, any questions or any other comment, please do 
+               not hesitate to contact me: strasdat@doc.ic.ac.uk
+	 
+</td></tr>
+</td></tr>
+<tr><td colspan=2>
+
+<br><b>Further Links</b>
+<br><a href=" https://github.com/strasdat/ScaViSLAM/" target="_blank">          UPDATE: We made a new visual SLAM library availbe.</a>
+</td></tr>
+<tr><td colspan=2>
+<br><br>
+ *** OpenSLAM.org is not responsible for the content of this webpage *** <br>
+ *** Copyright and V.i.S.d.P.: 
+<a href="http://www.doc.ic.ac.uk/~strasdat/" target="_blank">Hauke Strasdat</a>;
+<a href="http://www.doc.ic.ac.uk/~sl203/" target="_blank">Steven Lovegrove</a>;
+<a href="http://www.doc.ic.ac.uk/~ajd/" target="_blank">Andrew J. Davison</a>;
+ *** <br>
+</td></tr>
+</table></center>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html> 
+
+<head>
+<title>OpenSLAM.org</title> 
+<meta name="description" content="OpenSLAM.org">
+<meta name="keywords"    content="OpenSLAM SLAM robot mapping localization research">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+<meta name="robots" content="index">
+<meta http-equiv="expires" content="Sat, 01 Dec 2001 00:00:00 GMT">
+<link rel="stylesheet" type="text/css" href="style2.css">
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-27001887-1']);
+  _gaq.push(['_setDomainName', 'openslam.org']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+<body bgcolor="#FFFFFF">
+<br>
+<br>
+<center>
+<img src="openslam-logo.png" border=0>
+</center>
+<br>
+<center><h2>MTK - Manifold ToolKit</h2></center><center><table width=700> <tr><tr><td colspan=2>
+
+	  MTK is a toolkit that provides easy mechanisms to enable
+	  arbitrary algorithms to operate on manifolds. The main
+	  application is the use of 3D rotations SO(3), as well as the
+	  construction of compound manifolds from arbitrary
+	  combinations of sub-manifolds.<br><br>
+
+	  We also provide a refactored version of the previously
+	  released SLoM framework which implements Gauss-Newton and
+	  Levenberg-Marquardt-based sparse least-squares optimization
+	  on manifolds and a port of MTK to Matlab (MTKM).
+	
+</td></tr>
+</td></tr>
+ <tr><td colspan=2>
+
+<br><b>Authors</b><br>
+<a href="http://informatik.uni-bremen.de/agebv/en/ChristophHertzberg" target="_blank">Christoph Hertzberg</a>;
+<a href="http://informatik.uni-bremen.de/agebv/en/ReneWagner" target="_blank">Rene Wagner</a>;
+<a href="http://informatik.uni-bremen.de/agebv/en/OliverBirbach" target="_blank">Oliver Birbach</a>;
+</td></tr>
+
+<tr><td colspan=2>
+
+<br><b>Get the Source Code via SVN</b><br>
+svn co <a target="_blank" href="https://svn.openslam.org/data/svn/MTK">https://svn.openslam.org/data/svn/MTK</a><br>
+</td></tr>
+<tr><td colspan=2>
+
+<br> <b>Long Description</b><br>
+  
+	  The main motivation for MTK was that many SLAM algorithms either
+	  used (and partially still use) poor representations such as Euler
+	  angles to represent 3D orientations running into problems with
+	  singularities or overparameterize e.g. using Quaternions but
+	  ignoring undetermined degrees of freedom.<br><br>
+
+	  Another advantage of MTK is that it provides macros to combine
+	  elementary manifolds (such as R^n or SO(3)) to compund manifolds
+	  providing a flattened view for generic algorithms, while the user
+	  can access sub-components by name. Also functions are provided to
+	  access submatrices of Covariances corresponding to components
+	  of the state.<br><br>
+
+	  Compound manifolds are handled entirely using macros and template
+	  code, thus causing no run-time overhead.<br><br>
+
+	  The Matlab port primarily targets calibration applications
+	  and SLAM experimentation trading speed for ease of
+	  use. Details can be found in the IROS paper below.
+	
+<br><br></td></tr>
+<tr><td colspan=2>
+<b>Example Images</b><br>
+</td></tr>
+<tr>
+<td colspan=2><a href="http://informatik.uni-bremen.de/agebv/en/pub/hertzbergicra11?action=AttachFile&do=get&target=sphere.png"><img src="http://informatik.uni-bremen.de/agebv/en/pub/hertzbergicra11?action=AttachFile&do=get&target=sphere_thumb.png" border=0><a/><br>
+		  Manifolds such as the sphere are viewed locally as Euclidean Space. 
+		  Generic algorithms access the state only within the tangential space using the boxplus-operator.
+		</td>
+</tr>
+<tr><td colspan=2>
+
+<br> <b>Input Data </b><br>  
+	  Input operations have to be implemented by the user.
+	
+</td></tr>
+<tr><td colspan=2>
+
+<br> <b>Logfile Format</b><br>  
+	  For SLoM some examples are implemented working on logfiles as
+	  provided by TORO, iSAM or HOG-Man.
+	
+</td></tr>
+<tr><td colspan=2>
+
+<br> <b>Type of Map</b><br>  
+	  MTK is only used to represent states. 
+	  SLoM can operate on arbitrary feature based maps or calibration problems.
+	
+</td></tr>
+<tr><td colspan=2>
+
+<br> <b> Hardware/Software Requirements</b><br> 
+
+	  Developed under Linux (GCC). Tested under Linux and Windows.
+	  MTK is a pure header-only template library depending on Boost
+	  and the Eigen matrix library.
+	  SLoM furthermore requires the CXSparse library.
+	<br>
+</td></tr>
+<tr><td colspan=2>
+
+<br> <b>Papers Describing the Approach</b>
+<br>   C. Hertzberg, R. Wagner, U. Frese, and L. Schroeder:
+   Integrating Generic Sensor Fusion Algorithms with Sound State Representation through Encapsulation of Manifolds,
+   Information Fusion, under review  (<a href="http://arxiv.org/abs/1107.1119" target="_blank">link</a>)<br>
+<br>   R. Wagner, O. Birbach, and U. Frese:
+   Rapid Development of Manifold-Based Graph Optimization Systems for Multi-Sensor Calibration and SLAM.,
+   Proceeding of the IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS 2011), to appear  (<a href="http://www.informatik.uni-bremen.de/agebv/downloads/published/wagner_iros_11.pdf" target="_blank">link</a>)<br>
+<br>   Christoph Hertzberg:
+   A Framework for Sparse, Non-Linear Least Squares
+			Problems on Manifolds,
+   Diploma Thesis, University of Bremen, 2008  (<a href="http://www.informatik.uni-bremen.de/agebv/downloads/published/hertzberg_thesis_08.pdf" target="_blank">link</a>)<br>
+</td></tr>
+<tr><td colspan=2>
+
+<br><b>License Information</b><br>
+This software is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.<br> 
+The authors allow the users of OpenSLAM.org to use and modify the source code for their own research. Any commercial application, redistribution, etc has to be arranged between users and authors individually and is not covered by OpenSLAM.org.<br><br>
+MTK, SLoM and MTKM are licenced under the BSD License.
+</td></tr>
+</td></tr>
+<tr><td colspan=2>
+<br><br>
+ *** OpenSLAM.org is not responsible for the content of this webpage *** <br>
+ *** Copyright and V.i.S.d.P.: 
+<a href="http://informatik.uni-bremen.de/agebv/en/ChristophHertzberg" target="_blank">Christoph Hertzberg</a>;
+<a href="http://informatik.uni-bremen.de/agebv/en/ReneWagner" target="_blank">Rene Wagner</a>;
+<a href="http://informatik.uni-bremen.de/agebv/en/OliverBirbach" target="_blank">Oliver Birbach</a>;
+ *** <br>
+</td></tr>
+</table></center>
+</body>
+</html>

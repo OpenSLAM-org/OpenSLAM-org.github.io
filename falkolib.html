@@ -1,0 +1,142 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html> 
+
+<head>
+<title>OpenSLAM.org</title> 
+<meta name="description" content="OpenSLAM.org">
+<meta name="keywords"    content="OpenSLAM SLAM robot mapping localization research">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+<meta name="robots" content="index">
+<meta http-equiv="expires" content="Sat, 01 Dec 2001 00:00:00 GMT">
+<link rel="stylesheet" type="text/css" href="style2.css">
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-27001887-1']);
+  _gaq.push(['_setDomainName', 'openslam.org']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+<body bgcolor="#FFFFFF">
+<br>
+<br>
+<center>
+<img src="openslam-logo.png" border=0>
+</center>
+<br>
+<center><h2>FALKOLib</h2></center><center><table width=700> <tr><tr><td colspan=2>
+
+         FALKOLib is a library containing keypoint detectors for the stable detection 
+         of interest points in laser measurements and two descriptors for robust associations.
+	
+<br><a href="http://rimlab.ce.unipr.it/" target="_blank">Further information</a>
+</td></tr>
+</td></tr>
+ <tr><td colspan=2>
+
+<br><b>Authors</b><br>
+<a href="http://rimlab.ce.unipr.it/Kallasi.html" target="_blank">Fabjan Kallasi</a>;
+<a href="http://rimlab.ce.unipr.it/LodiRizzini.html" target="_blank">Dario Lodi Rizzini</a>;
+<a href="http://rimlab.ce.unipr.it/Caselli.html" target="_blank">Stefano Caselli</a>;
+</td></tr>
+
+<tr><td colspan=2>
+
+<br><b>Get the Source Code via SVN</b><br>
+svn co <a target="_blank" href="https://svn.openslam.org/data/svn/falkolib">https://svn.openslam.org/data/svn/falkolib</a><br>
+</td></tr>
+<tr><td colspan=2>
+
+<br> <b>Long Description</b><br>
+  
+         Detecting features in sensor measurements and distinguishing among 
+         them is an important capability for robot localization and navigation. 
+         Despite the wide diffusion of range finders, there are few works 
+         on keypoint features for 2D LIDAR and there is potential for improvement 
+         over the existing methods. 
+         We propose two novel keypoint detectors for the stable detection of 
+         interest points in laser measurements (named FALKO and OC) 
+         and two descriptors for robust associations (named BSC and CGH). 
+         The features defined by combining keypoints and descriptors allow 
+         stable and efficient place recognition. 
+	
+<br><br></td></tr>
+<tr><td colspan=2>
+<b>Example Images</b><br>
+</td></tr>
+<tr>
+<td colspan=2><a href="http://rimlab.ce.unipr.it/img/falko-bsc.png"><img src="http://rimlab.ce.unipr.it/img/falko-bsc.png" border=0><a/><br>Example of feature association with FALKO detector and BSC descriptors.</td>
+</tr>
+<tr>
+<td colspan=2><a href="http://rimlab.ce.unipr.it/img/intel-lab-falko-map.png"><img src="http://rimlab.ce.unipr.it/img/intel-lab-falko-map.png" border=0><a/><br>Example of FALKO keypoint (red points) extraction in intel-lab dataset</td>
+</tr>
+<tr><td colspan=2>
+
+<br> <b>Input Data </b><br>  The approach takes raw laser range data. 
+         Laser scans with higher resolution (0.25 deg) enables richer description of the environment.
+         Odometry can be used for testing the association between features 
+        
+</td></tr>
+<tr><td colspan=2>
+
+<br> <b>Logfile Format</b><br>   
+	 Carmen log format. Raw scan data. 
+	
+</td></tr>
+<tr><td colspan=2>
+
+<br> <b>Type of Map</b><br>  feature maps
+</td></tr>
+<tr><td colspan=2>
+
+<br> <b> Hardware/Software Requirements</b><br> 
+
+         Developed and tested under Linux (tested with GCC >= 4.8). 
+         Library dependencies: Eigen 3.0, Boost.
+         CMake is needed for building. 
+	<br>
+</td></tr>
+<tr><td colspan=2>
+
+<br> <b>Papers Describing the Approach</b>
+<br>   F. Kallasi, D. Lodi Rizzini, and S. Caselli.:
+   Fast Keypoint Features from Laser Scanner for Robot Localization and Mapping,
+   IEEE Robotics and Automation Letters (RA-L), 1(1):176-183, 2016  (<a href="http://dx.doi.org/10.1109/LRA.2016.2517210" target="_blank">link</a>)<br>
+</td></tr>
+<tr><td colspan=2>
+
+<br><b>License Information</b><br>
+This software is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.<br> 
+The authors allow the users of OpenSLAM.org to use and modify the source code for their own research. Any commercial application, redistribution, etc has to be arranged between users and authors individually and is not covered by OpenSLAM.org.<br><br>
+FALKOLib is licenced under the Creative Commons
+	(Attribution-NonCommercial-ShareAlike).
+</td></tr>
+<tr><td colspan=2>
+<br>
+<b>Further Information</b><br>
+ 
+         FALKOLib is designed as a stand-alone library that can be included in your projects. 
+         For any questions, comments or installation problems please contact either kallasi@ce.unipr.it or dlr@ce.unipr.it.
+	 
+</td></tr>
+</td></tr>
+<tr><td colspan=2>
+<br><br>
+ *** OpenSLAM.org is not responsible for the content of this webpage *** <br>
+ *** Copyright and V.i.S.d.P.: 
+<a href="http://rimlab.ce.unipr.it/Kallasi.html" target="_blank">Fabjan Kallasi</a>;
+<a href="http://rimlab.ce.unipr.it/LodiRizzini.html" target="_blank">Dario Lodi Rizzini</a>;
+<a href="http://rimlab.ce.unipr.it/Caselli.html" target="_blank">Stefano Caselli</a>;
+ *** <br>
+</td></tr>
+</table></center>
+</body>
+</html>

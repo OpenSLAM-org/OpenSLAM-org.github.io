@@ -1,0 +1,135 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html> 
+
+<head>
+<title>OpenSLAM.org</title> 
+<meta name="description" content="OpenSLAM.org">
+<meta name="keywords"    content="OpenSLAM SLAM robot mapping localization research">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+<meta name="robots" content="index">
+<meta http-equiv="expires" content="Sat, 01 Dec 2001 00:00:00 GMT">
+<link rel="stylesheet" type="text/css" href="style2.css">
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-27001887-1']);
+  _gaq.push(['_setDomainName', 'openslam.org']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+<body bgcolor="#FFFFFF">
+<br>
+<br>
+<center>
+<img src="openslam-logo.png" border=0>
+</center>
+<br>
+<center><h2>2D I-SLSJF</h2></center><center><table width=700> <tr><tr><td colspan=2>
+
+	 I-SLSJF is a local submap joining algorithm using sparse information filter and least squares optimization. The input of I-SLSJF is a sequence of local maps and 
+the output of I-SLSJF is a global map. The preprocessed Victoria Park data set and the corrected DLR-Spatial-Cognition data set are provided to demonstrate the algorithm.
+	
+<br><a href="http://services.eng.uts.edu.au/~sdhuang/research_SLAM_map_joining.htm" target="_blank">Further information</a>
+</td></tr>
+</td></tr>
+ <tr><td colspan=2>
+
+<br><b>Authors</b><br>
+<a href="http://services.eng.uts.edu.au/~sdhuang" target="_blank">Shoudong Huang</a>;
+Zhan Wang;
+</td></tr>
+
+<tr><td colspan=2>
+
+<br><b>Get the Source Code via SVN</b><br>
+svn co <a target="_blank" href="https://svn.openslam.org/data/svn/2d-i-slsjf">https://svn.openslam.org/data/svn/2d-i-slsjf</a><br>
+</td></tr>
+<tr><td colspan=2>
+
+<br> <b>Long Description</b><br>
+  
+	 I-SLSJF is a new local submap joining algorithm for
+building large-scale feature based maps. The algorithm is based on
+the recently developed Sparse Local Submap Joining Filter (SLSJF)
+and uses multiple iterations to improve the estimate and hence is
+called Iterated SLSJF (I-SLSJF). The input to the I-SLSJF
+algorithm is a sequence of local submaps. The output of the
+algorithm is a global map containing the global positions of all
+the features as well as all the robot start/end poses of the local
+submaps. A number of simuation and experimental data sets are provided together with the MATLAB source code. The user can easily use the code to fuse their own local maps.
+	
+<br><br></td></tr>
+<tr><td colspan=2>
+<b>Example Images</b><br>
+</td></tr>
+<tr>
+<td colspan=2><a href="http://www.openslam.org/imgs/SLSJF_idea.JPG"><img src="http://www.openslam.org/imgs/_SLSJF_idea.JPG" border=0><a/><br>The idea of I-SLSJF</td>
+</tr>
+<tr>
+<td colspan=2><a href="http://www.openslam.org/imgs/35188.jpg"><img src="http://www.openslam.org/imgs/_35188.jpg" border=0><a/><br>I-SLSJF map obtained by joining 700 local maps, the simulation data contains 219332 observations made from 35188 robot poses to 4202 features</td>
+</tr>
+<tr>
+<td colspan=2><a href="http://www.openslam.org/imgs/VicPark_ISLSJF.jpg"><img src="http://www.openslam.org/imgs/_VicPark_ISLSJF.jpg" border=0><a/><br>I-SLSJF map using Victoria Park data set</td>
+</tr>
+<tr>
+<td colspan=2><a href="http://www.openslam.org/imgs/DLR_ISLSJF.jpg"><img src="http://www.openslam.org/imgs/_DLR_ISLSJF.jpg" border=0><a/><br>I-SLSJF map using DLR-Spatial-Cognition data set</td>
+</tr>
+<tr><td colspan=2>
+
+<br> <b>Input Data </b><br>   A sequence of small loal maps, each local map contain a state vector estimate and the corresponding covariance matrix.
+</td></tr>
+<tr><td colspan=2>
+</td></tr>
+<tr><td colspan=2>
+
+<br> <b>Type of Map</b><br>  point feature maps
+</td></tr>
+<tr><td colspan=2>
+
+<br> <b> Hardware/Software Requirements</b><br> 
+
+	MATLAB
+	<br>
+</td></tr>
+<tr><td colspan=2>
+
+<br><b>Documentation</b>
+<br><a href="http://services.eng.uts.edu.au/~sdhuang/2D I-SLSJF_Documentation_2009_Oct_11.pdf" target="_blank">Document for 2D I-SLSJF MATLAB code</a>
+</td></tr>
+<tr><td colspan=2>
+
+<br> <b>Papers Describing the Approach</b>
+<br>    Shoudong Huang, Zhan Wang, Gamini Dissanayake, and Udo Frese:
+    Iterated SLSJF: A sparse local submap joining algorithm with improved consistency ,
+    2008 Australiasan Conference on Robotics and Automation. Canberra, December 2008. , 2008  (<a href=" http://www.araa.asn.au/acra/acra2008/papers/pap102s1.pdf
+" target="_blank">link</a>)<br>
+<br>    Shoudong Huang, Zhan Wang, and Gamini Dissanayake:
+   Sparse local submap joining filter for building large-scale maps,
+   IEEE Transactions on Robotics, 2008  (<a href="http://services.eng.uts.edu.au/~sdhuang/SLSJF_IEEE_TRO_final_2008_May_27.pdf" target="_blank">link</a>)<br>
+</td></tr>
+<tr><td colspan=2>
+
+<br><b>License Information</b><br>
+This software is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.<br> 
+The authors allow the users of OpenSLAM.org to use and modify the source code for their own research. Any commercial application, redistribution, etc has to be arranged between users and authors individually and is not covered by OpenSLAM.org.<br><br>
+</td></tr>
+</td></tr>
+<tr><td colspan=2>
+<br><br>
+ *** OpenSLAM.org is not responsible for the content of this webpage *** <br>
+ *** Copyright and V.i.S.d.P.: 
+<a href="http://services.eng.uts.edu.au/~sdhuang" target="_blank">Shoudong Huang</a>;
+Zhan Wang;
+ *** <br>
+</td></tr>
+</table></center>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html> 
+
+<head>
+<title>OpenSLAM.org</title> 
+<meta name="description" content="OpenSLAM.org">
+<meta name="keywords"    content="OpenSLAM SLAM robot mapping localization research">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+<meta name="robots" content="index">
+<meta http-equiv="expires" content="Sat, 01 Dec 2001 00:00:00 GMT">
+<link rel="stylesheet" type="text/css" href="style2.css">
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-27001887-1']);
+  _gaq.push(['_setDomainName', 'openslam.org']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+<body bgcolor="#FFFFFF">
+<br>
+<br>
+<center>
+<img src="openslam-logo.png" border=0>
+</center>
+<br>
+<center><h2>DP-SLAM</h2></center><center><table width=700> <tr><tr><td colspan=2>
+
+	 DP-SLAM aims to achieve truly simultaneous localization and
+	 mapping without landmarks. While DP-SLAM is compatible with
+	 techniques that correct maps when a loop is closed, we have
+	 found that DP-SLAM is accurate enough that no special loop
+	 closing techniques are required in most cases.  DP-SLAM makes
+	 only a single pass over the sensor data.
+         DP-SLAM works by maintaining a joint probability distribution
+         over maps and robot poses using a particle filter. This
+         allows DP-SLAM to maintain uncertainty about the map over
+         multiple time steps until ambiguities can be resolved. This
+         prevents errors in the map from accumulating over time.
+	
+<br><a href="http://www.cs.duke.edu/~parr/dpslam/" target="_blank">Further information</a>
+</td></tr>
+</td></tr>
+ <tr><td colspan=2>
+
+<br><b>Authors</b><br>
+<a href="http://www.cs.duke.edu/~eliazar" target="_blank">Austin Eliazar</a>;
+<a href="http://www.cs.duke.edu/%7Eparr" target="_blank">Ronald Parr</a>;
+</td></tr>
+
+<tr><td colspan=2>
+
+<br><b>Get the Source Code via SVN</b><br>
+svn co <a target="_blank" href="https://svn.openslam.org/data/svn/dpslam">https://svn.openslam.org/data/svn/dpslam</a><br>
+</td></tr>
+<tr><td colspan=2>
+
+<br> <b>Long Description</b><br>
+  
+        DP-SLAM uses a particle filter to maintain a joint probability
+        distribution over maps and robot positions.  This would be
+        expensive without some clever data structures since it would
+        require a complete copy of the entire occupancy grid for every
+        particle, and would require making copies of the maps during
+        the resampling phase of the particle filter.  The figure below
+        conceptually shows an ancestry of particles and map updates,
+        with leaves of the ancestry tree pointing to maps.  (Think of
+        each red dot in the ancestry tree as a sampled robot position
+        and the black lines around the red dot as the new observations
+        associated with the current robot position.  The gray lines
+        show piece of the map inherited from the previous particle.)
+        Notice that all maps in this example will agree with the
+        initial observation.  The two leftmost maps will agree on the
+        observations made by the left child of the root, while the two
+        rightmost maps will agree with the observations made by the
+        right child of the root.  It would be a waste of memory and
+        time to store and repeatedly copy these map sections every
+        time a particle is resampled.  Instead, we use a single
+        occupancy grid which stores an observation tree at each
+        square.  As shown below, each particle inserts its
+        observations into the global grid.  These are stored as a
+        balanced tree, indexed on a unique ID assigned to each
+        particle.  The computer science part of the DP-SLAM project
+        involves the algorithms and analysis to show that these data
+        structures can be maintained efficiently.
+	
+<br><br></td></tr>
+<tr><td colspan=2>
+<b>Example Images</b><br>
+</td></tr>
+<tr>
+<td colspan=2><a href="http://www.cs.duke.edu/~parr/dpslam/Wean.html"><img src="http://www.cs.duke.edu/~parr/dpslam/wean-thumb.png" border=0><a/><br>Wean Hall</td>
+</tr>
+<tr>
+<td colspan=2><a href="http://www.cs.duke.edu/~parr/dpslam/C-Wing.html"><img src="http://www.cs.duke.edu/~parr/dpslam/3cm25-icon.gif" border=0><a/><br>C-Wing</td>
+</tr>
+<tr><td colspan=2>
+
+<br> <b>Input Data </b><br>  The approach takes raw laser range data and odometry.
+</td></tr>
+<tr><td colspan=2>
+</td></tr>
+<tr><td colspan=2>
+
+<br> <b>Type of Map</b><br>  grid maps
+</td></tr>
+<tr><td colspan=2>
+
+<br> <b> Hardware/Software Requirements</b><br> 
+
+	Linux
+	<br>
+</td></tr>
+<tr><td colspan=2>
+
+<br> <b>Papers Describing the Approach</b>
+<br>   Austin Eliazar, Ronald Parr:
+   DP-SLAM: Fast, Robust Simultainous Localization
+                  and Mapping Without Predetermined Landmarks,
+   IJCAI, 2003  (<a href="http://www.cs.duke.edu/%7Eparr/ijcai03.ps.gz" target="_blank">link</a>)<br>
+<br>   Austin Eliazar, Ronald Parr:
+   DP-SLAM 2.0,
+   ,   (<a href="http://www.cs.duke.edu/%7Eparr/dpslam2.pdf" target="_blank">link</a>)<br>
+</td></tr>
+<tr><td colspan=2>
+
+<br><b>License Information</b><br>
+This software is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.<br> 
+The authors allow the users of OpenSLAM.org to use and modify the source code for their own research. Any commercial application, redistribution, etc has to be arranged between users and authors individually and is not covered by OpenSLAM.org.<br><br>
+
+        This Program is provided by Duke University and the authors as
+        a service to the research community. It is provided without
+        cost or restrictions, except for the User's acknowledgment
+        that the Program is provided on an "As Is" basis and User
+        understands that Duke University and the authors make no
+        express or implied warranty of any kind.  Duke University and
+        the authors specifically disclaim any implied warranty or
+        merchantability or fitness for a particular purpose, and make
+        no representations or warranties that the Program will not
+        infringe the intellectual property rights of others. The User
+        agrees to indemnify and hold harmless Duke University and the
+        authors from and against any and all liability arising out of
+        User's use of the Program.
+	
+</td></tr>
+</td></tr>
+<tr><td colspan=2>
+<br><br>
+ *** OpenSLAM.org is not responsible for the content of this webpage *** <br>
+ *** Copyright and V.i.S.d.P.: 
+<a href="http://www.cs.duke.edu/~eliazar" target="_blank">Austin Eliazar</a>;
+<a href="http://www.cs.duke.edu/%7Eparr" target="_blank">Ronald Parr</a>;
+ *** <br>
+</td></tr>
+</table></center>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html> 
+
+<head>
+<title>OpenSLAM.org</title> 
+<meta name="description" content="OpenSLAM.org">
+<meta name="keywords"    content="OpenSLAM SLAM robot mapping localization research">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+<meta name="robots" content="index">
+<meta http-equiv="expires" content="Sat, 01 Dec 2001 00:00:00 GMT">
+<link rel="stylesheet" type="text/css" href="style2.css">
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-27001887-1']);
+  _gaq.push(['_setDomainName', 'openslam.org']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+<body bgcolor="#FFFFFF">
+<br>
+<br>
+<center>
+<img src="openslam-logo.png" border=0>
+</center>
+<br>
+<center><h2>Bayesian range-only SLAM (RO-SLAM) with SOGs</h2></center><center><table width=700> <tr><tr><td colspan=2>
+
+     This is a C++ implementation for generic RBPF-SLAM with different kinds of maps, including one solution 
+	 to Range-Only SLAM (RO-SLAM) with landmark maps represented as Sum of Gaussians (SOGs), which are dynamically 
+	 adapted to represent well the uncertainty of all mapped beacons. There exists a stand-alone executable ready for use 
+	 and demo configuration files and datasets.
+  
+</td></tr>
+</td></tr>
+ <tr><td colspan=2>
+
+<br><b>Authors</b><br>
+<a href="http://sites.google.com/site/jlblancosite/" target="_blank">Jose Luis Blanco</a>;
+<a href="http://www.isa.uma.es/jafma" target="_blank">Juan Antonio Fernandez Madrigal</a>;
+<a href="http://www.isa.uma.es/jgonzalez" target="_blank">Javier Gonzalez Jimenez</a>;
+</td></tr>
+
+<tr><td colspan=2>
+
+<br><b>Get the Source Code via SVN</b><br>
+svn co <a target="_blank" href="https://svn.openslam.org/data/svn/ro-slam">https://svn.openslam.org/data/svn/ro-slam</a><br>
+</td></tr>
+<tr><td colspan=2>
+
+<br> <b>Long Description</b><br>
+  
+    This solution to Range-Only SLAM (RO-SLAM) addresses the Bayesian inference problem of sequentially 
+	tracking a vehicle while estimating the location of a set of beacons without any prior information. 
+	The only assumptions are the availability of odometry and a range sensor able of identifying the 
+	different beacons (i.e. no need to solve data association).<br><br>
+
+    We exploit the conditional independence between each beacon distribution within a Rao-Blackwellized 
+	Particle Filter (RBPF) for maintaining independent Sum of Gaussians (SOGs) for each map element in 
+	Euclidean coordinates.<br><br>
+
+	It is shown then that a proper probabilistic observation model can be derived for online operation 
+	with no need for delayed initializations. This solution is far more accurate and efficient than a previous 
+	implementation with beacons modeled with a Monte-Carlo approximation.
+  
+<br><br></td></tr>
+<tr><td colspan=2>
+<b>Example Images</b><br>
+</td></tr>
+<tr>
+<td colspan=2><a href="http://www.mrpt.org/videos/RESULTS_ROSLAM_SOG.flv"><img src="http://www.mrpt.org/videos/RESULTS_ROSLAM_SOG.jpg" border=0><a/><br>Video: Results for three real UWB beacons.</td>
+</tr>
+<tr>
+<td colspan=2><a href="http://www.mrpt.org/videos/demo_ROSLAM_symmetry1.flv"><img src="http://www.mrpt.org/videos/demo_ROSLAM_symmetry1.jpg" border=0><a/><br>Video: Symmetries in RO-SLAM.</td>
+</tr>
+<tr><td colspan=2>
+
+<br> <b>Input Data </b><br>  
+    Pairs of action (movements from odometry) + observation (sensed ranges to a set of static beacons).
+  
+</td></tr>
+<tr><td colspan=2>
+
+<br> <b>Logfile Format</b><br>  
+    A binary format called "Rawlog", suitable to laser or RGB+D scans, images, UWB beacons, 2D or 3D odometry, etc. 
+	See its specifications: http://www.mrpt.org/Rawlog_Format
+	These files can be visualized and manipulated with RawLogViewer or rawlog-edit. Both programs come in precompiled versions of MRPT and can be also found in the official Debian and Ubuntu repositories.
+  
+</td></tr>
+<tr><td colspan=2>
+
+<br> <b>Type of Map</b><br>  Landmarks
+</td></tr>
+<tr><td colspan=2>
+
+<br> <b> Hardware/Software Requirements</b><br> 
+
+     The implementation is part of the C++ library: http://reference.mrpt.org/stable/group__mrpt__slam__grp.html 
+	within the Mobile Robot Programming Toolkit (MRPT). Built and tested on Windows/Linux, with Visual Studio 2008+/GCC 4.1+. 
+	Requires: Eigen 3, but will use an included version if no system version is found. wxWidgets (optional, for GUI only)
+  <br>
+</td></tr>
+<tr><td colspan=2>
+
+<br> <b>Papers Describing the Approach</b>
+<br>   Jose Luis Blanco, Juan Antonio Fernandez Madrigal, Javier Gonzalez Jimenez:
+   Efficient Probabilistic Range-Only SLAM,
+   IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), 2008  (<a href="http://mapir.isa.uma.es/~jlblanco/papers/iros08ro-slam.pdf" target="_blank">link</a>)<br>
+</td></tr>
+<tr><td colspan=2>
+
+<br><b>License Information</b><br>
+This software is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.<br> 
+The authors allow the users of OpenSLAM.org to use and modify the source code for their own research. Any commercial application, redistribution, etc has to be arranged between users and authors individually and is not covered by OpenSLAM.org.<br><br>
+
+    MRPT is released under the New BSD license since version 1.0.0, under GNU GPL 3 for previous versions.
+  
+</td></tr>
+<tr><td colspan=2>
+<br>
+<b>Further Information</b><br>
+ 
+    Please see: http://www.mrpt.org/RangeOnly_SLAM
+    for further instructions on how to reproduce the experiments shown in the paper, Doxygen documentation, the 
+	slides of our IROS presentation, etc.
+	
+	The main SVN repository for this project is located at Google code: http://code.google.com/p/mrpt/
+   
+</td></tr>
+</td></tr>
+<tr><td colspan=2>
+<br><br>
+ *** OpenSLAM.org is not responsible for the content of this webpage *** <br>
+ *** Copyright and V.i.S.d.P.: 
+<a href="http://sites.google.com/site/jlblancosite/" target="_blank">Jose Luis Blanco</a>;
+<a href="http://www.isa.uma.es/jafma" target="_blank">Juan Antonio Fernandez Madrigal</a>;
+<a href="http://www.isa.uma.es/jgonzalez" target="_blank">Javier Gonzalez Jimenez</a>;
+ *** <br>
+</td></tr>
+</table></center>
+</body>
+</html>

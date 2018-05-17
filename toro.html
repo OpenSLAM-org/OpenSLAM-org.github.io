@@ -1,0 +1,179 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html> 
+
+<head>
+<title>OpenSLAM.org</title> 
+<meta name="description" content="OpenSLAM.org">
+<meta name="keywords"    content="OpenSLAM SLAM robot mapping localization research">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+<meta name="robots" content="index">
+<meta http-equiv="expires" content="Sat, 01 Dec 2001 00:00:00 GMT">
+<link rel="stylesheet" type="text/css" href="style2.css">
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-27001887-1']);
+  _gaq.push(['_setDomainName', 'openslam.org']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+<body bgcolor="#FFFFFF">
+<br>
+<br>
+<center>
+<img src="openslam-logo.png" border=0>
+</center>
+<br>
+<center><h2>TORO - Tree-based netwORk Optimizer</h2></center><center><table width=700> <tr><tr><td colspan=2>
+
+	TORO is an optimization approach for constraint-network. It
+	provides an efficient, gradient descent-based error
+	minimization procedure.  There is a 2D and a 3D version of
+	TORO available.
+        
+<br><a href="http://www.informatik.uni-freiburg.de/~stachnis/toro/" target="_blank">Further information</a>
+</td></tr>
+</td></tr>
+ <tr><td colspan=2>
+
+<br><b>Authors</b><br>
+<a href="http://www.informatik.uni-freiburg.de/~grisetti" target="_blank">Giorgio Grisetti</a>;
+<a href="http://www.informatik.uni-freiburg.de/~stachnis" target="_blank">Cyrill Stachniss</a>;
+<a href="http://www.informatik.uni-freiburg.de/~grzonka" target="_blank">Slawomir Grzonka</a>;
+<a href="http://www.informatik.uni-freiburg.de/~burgard" target="_blank">Wolfram Burgard</a>;
+</td></tr>
+
+<tr><td colspan=2>
+
+<br><b>Get the Source Code via SVN</b><br>
+svn co <a target="_blank" href="https://svn.openslam.org/data/svn/toro">https://svn.openslam.org/data/svn/toro</a><br>
+</td></tr>
+<tr><td colspan=2>
+
+<br> <b>Long Description</b><br>
+  
+        Recently, Olson  et al.  presented a novel approach to
+        solve the graph-based SLAM problem by applying stochastic
+        gradient descent to minimize the error introduced by
+        constraints.  TORO is an extension of Olson's algorithm.  It
+        applies a tree parameterization of the nodes in the graph that
+        significantly improves the performance and enables a robot to
+        cope with arbitrary network topologies. The latter allows us
+        to bound the complexity of the algorithm to the size of the
+        mapped area and not to the length of the trajectory.
+        
+<br><br></td></tr>
+<tr><td colspan=2>
+<b>Example Images</b><br>
+</td></tr>
+<tr>
+<td colspan=2><a href="http://www.informatik.uni-freiburg.de/~stachnis/videos/grisetti07iros-toro3d.avi"><img src="http://www.informatik.uni-freiburg.de/~stachnis/videos/grisetti07iros-toro3d.png" border=0><a/><br>Correcting a sphere in 3D</td>
+</tr>
+<tr>
+<td colspan=2><a href="http://www.informatik.uni-freiburg.de/~stachnis/toro/w-200000-0.01-0.005.gsgd.png"><img src="http://www.informatik.uni-freiburg.de/~stachnis/toro/_w-200000-0.01-0.005.gsgd.png" border=0><a/><br>A corrected  network with 200k nodes</td>
+</tr>
+<tr>
+<td colspan=2><a href="http://www.informatik.uni-freiburg.de/~stachnis/toro/gsgd-w5000-noequiv.avi"><img src="http://www.informatik.uni-freiburg.de/~stachnis/toro/_gsgd-w5000-noequiv.png" border=0><a/><br>Small video (5k nodes/30k constraints)</td>
+</tr>
+<tr><td colspan=2>
+
+<br> <b>Input Data </b><br>  
+	Nodes and edges of a graph.
+	
+</td></tr>
+<tr><td colspan=2>
+
+<br> <b>Logfile Format</b><br>   A set of simple text messages to represent nodes
+	and edges of the graph.  Note that examples files are in the repository. See folder data.<br><br>
+
+	Format of the 2D graph files:<br><br>
+
+	  Every line in the file specifies either one vertex or one edge<br><br>
+
+	  The vertices are specified as follws:
+	  VERTEX2 id x y orientation 
+	  (A 2D node in the graph)<br><br>
+
+	  EDGE2 observed_vertex_id observing_vertex_id forward sideward rotate inf_ff inf_fs inf_ss inf_rr inf_fr inf_sr 
+	  (A 2D-edge in the graph. inf_xx are the information matrix entries of the constraint)<br><br>
+
+	  EQUIV id1 id2 
+	  (Equivalence constraints between nodes. It merges the node id1 and id2 wrt to the constraint between both vertices.)<br><br>
+
+	
+	Format of the 3D graph files:<br><br>
+
+	  Every line in the file specifies either one vertex or one edge<br><br>
+
+	  The vertices are specified as follws:
+	  VETREX3 x y z phi theta psi  <br><br>
+
+	  The edges are specified as follows:
+	  EDGE3 observed_vertex_id observing_vertex_id x y z roll pitch yaw inf_11 inf_12 .. inf_16 inf_22 .. inf_66 
+	  (the information matrix is specified via its upper triangular block that means 21 values).<br><br>
+
+	
+</td></tr>
+<tr><td colspan=2>
+
+<br> <b>Type of Map</b><br>  Graphs (nodes and edge)
+</td></tr>
+<tr><td colspan=2>
+
+<br> <b> Hardware/Software Requirements</b><br> 
+
+	Developed under Linux, GCC 4.0.2 but should work anywhere where GCC runs.
+	
+	07/2008 Patch for compatability with gcc 4.3.x as well as MacOSX (thanks to P. Checchin)
+	<br>
+</td></tr>
+<tr><td colspan=2>
+
+<br> <b>Papers Describing the Approach</b>
+<br>   Giorgio Grisetti, Cyrill Stachniss, and Wolfram Burgard:
+   Non-linear Constraint Network Optimization for Efficient Map Learning.,
+   IEEE Transactions on Intelligent Transportation Systems, Volume 10, Issue 3, Pages 428-439, 2009  (<a href="http://www.informatik.uni-freiburg.de/~stachnis/pdf/grisetti09its.pdf" target="_blank">link</a>)<br>
+<br>   Grisetti Giorgio, Slawomir Grzonka, Cyrill Stachniss, Patrick Pfaff, and Wolfram Burgard:
+   Efficient Estimation of Accurate Maximum Likelihood Maps in 3D.,
+   IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), 2007  (<a href="http://www.informatik.uni-freiburg.de/~stachnis/pdf/grisetti07iros.pdf" target="_blank">link</a>)<br>
+<br>   Giorgio Grisetti, Cyrill Stachniss, Slawomir Grzonka, and Wolfram Burgard:
+   A Tree Parameterization for Efficiently Computing Maximum Likelihood Maps using Gradient Descent.,
+   Robotics: Science and Systems (RSS), 2007  (<a href="http://www.informatik.uni-freiburg.de/~stachnis/pdf/grisetti07rss.pdf" target="_blank">link</a>)<br>
+</td></tr>
+<tr><td colspan=2>
+
+<br><b>License Information</b><br>
+This software is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.<br> 
+The authors allow the users of OpenSLAM.org to use and modify the source code for their own research. Any commercial application, redistribution, etc has to be arranged between users and authors individually and is not covered by OpenSLAM.org.<br><br>
+TORO is licenced under the Creative Commons
+	(Attribution-NonCommercial-ShareAlike).
+</td></tr>
+<tr><td colspan=2>
+<br>
+<b>Further Information</b><br>
+ 
+	C++ code, quite compact, efficient, and stand-alone
+	 
+</td></tr>
+</td></tr>
+<tr><td colspan=2>
+<br><br>
+ *** OpenSLAM.org is not responsible for the content of this webpage *** <br>
+ *** Copyright and V.i.S.d.P.: 
+<a href="http://www.informatik.uni-freiburg.de/~grisetti" target="_blank">Giorgio Grisetti</a>;
+<a href="http://www.informatik.uni-freiburg.de/~stachnis" target="_blank">Cyrill Stachniss</a>;
+<a href="http://www.informatik.uni-freiburg.de/~grzonka" target="_blank">Slawomir Grzonka</a>;
+<a href="http://www.informatik.uni-freiburg.de/~burgard" target="_blank">Wolfram Burgard</a>;
+ *** <br>
+</td></tr>
+</table></center>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html> 
+
+<head>
+<title>OpenSLAM.org</title> 
+<meta name="description" content="OpenSLAM.org">
+<meta name="keywords"    content="OpenSLAM SLAM robot mapping localization research">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+<meta name="robots" content="index">
+<meta http-equiv="expires" content="Sat, 01 Dec 2001 00:00:00 GMT">
+<link rel="stylesheet" type="text/css" href="style2.css">
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-27001887-1']);
+  _gaq.push(['_setDomainName', 'openslam.org']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+<body bgcolor="#FFFFFF">
+<br>
+<br>
+<center>
+<img src="openslam-logo.png" border=0>
+</center>
+<br>
+<center><h2>ParallaxBA</h2></center><center><table width=700> <tr><tr><td colspan=2>
+
+	 ParallaxBA: Bundle Adjustment using Parallax Angle Feature Parametrization.
+	
+</td></tr>
+</td></tr>
+ <tr><td colspan=2>
+
+<br><b>Authors</b><br>
+Liang Zhao;
+<a href="http://services.eng.uts.edu.au/~sdhuang/index.htm" target="_blank">Shoudong Huang</a>;
+Yanbiao Sun;
+<a href="http://services.eng.uts.edu.au/~gdissa/index_files/gdissanayake.html" target="_blank">Gamini Dissanayake</a>;
+</td></tr>
+
+<tr><td colspan=2>
+
+<br><b>Get the Source Code via SVN</b><br>
+svn co <a target="_blank" href="https://svn.openslam.org/data/svn/ParallaxBA">https://svn.openslam.org/data/svn/ParallaxBA</a><br>
+</td></tr>
+<tr><td colspan=2>
+
+<br> <b>Long Description</b><br>
+  
+	 ParallaxBA is a new bundle adjustment algorithm based on parallax angle feature parametrization. It is demonstrated that the new parametrization can reliably represent both nearby and distant features under different camera motions. Because
+good information of the proposed feature parameters is always available, the singularity of the information matrix due to near zero parallax can be
+avoided. Moreover, using the new parameters results in better properties of the objective function as compared with those
+using traditional Euclidean XYZ and inverse depth parametrization. Thus ParallaxBA has better convergence properties as
+compared with existing BA algorithms.
+	
+<br><br></td></tr>
+<tr><td colspan=2>
+<b>Example Images</b><br>
+</td></tr>
+<tr>
+<td colspan=2><a href="http://services.eng.uts.edu.au/~sdhuang/Parametrization.png"><img src="http://services.eng.uts.edu.au/~sdhuang/Parametrization2.png" border=0><a/><br>Parallax angle parametrization for feature</td>
+</tr>
+<tr>
+<td colspan=2><a href="http://services.eng.uts.edu.au/~sdhuang/Venice.png"><img src="http://services.eng.uts.edu.au/~sdhuang/Venice2.png" border=0><a/><br>Result of Venice Dataset</td>
+</tr>
+<tr>
+<td colspan=2><a href="http://services.eng.uts.edu.au/~sdhuang/RS468.png"><img src="http://services.eng.uts.edu.au/~sdhuang/RS4682.png" border=0><a/><br>Result of aerial photogrammetric 468 images dataset</td>
+</tr>
+<tr><td colspan=2>
+
+<br> <b>Input Data </b><br>  The input of ParallaxBA is the matched image points, 
+	camera calibration matrix, as well as the initial values 
+	of camera poses and features (optional).
+</td></tr>
+<tr><td colspan=2>
+
+<br> <b>Logfile Format</b><br>   
+	The format is similar to SBA.
+	
+</td></tr>
+<tr><td colspan=2>
+
+<br> <b>Type of Map</b><br>  3D point features and camera poses
+</td></tr>
+<tr><td colspan=2>
+
+<br> <b> Hardware/Software Requirements</b><br> 
+
+	Windows, Microsoft Visual Studio, or
+	<br>
+
+	Linux/Unix
+	<br>
+</td></tr>
+<tr><td colspan=2>
+
+<br><b>Documentation</b>
+<br><a href="http://services.eng.uts.edu.au/~sdhuang/Documentation_ParallaxBA.pdf" target="_blank">Document for ParallaxBA C/C++ Source Code</a>
+</td></tr>
+<tr><td colspan=2>
+
+<br> <b>Papers Describing the Approach</b>
+<br>   Liang Zhao, Shoudong Huang, Lei Yan and Gamini Dissanayake:
+   Parallax Angle Parametrization for Monocular SLAM,
+   In Proceedings of the IEEE International Conference on Robotics and Automation (ICRA), pp. 3117-3124, 2011<br>
+<br>   Liang Zhao, Shoudong Huang, Yanbiao Sun, Lei Yan and Gamini Dissanayake:
+   ParallaxBA: Bundle Adjustment using Parallax Angle Feature Parametrization,
+   International Journal of Robotics Research (IJRR), 2015  (<a href="http://ijr.sagepub.com/content/early/2015/01/26/0278364914551583" target="_blank">link</a>)<br>
+</td></tr>
+<tr><td colspan=2>
+
+<br><b>License Information</b><br>
+This software is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.<br> 
+The authors allow the users of OpenSLAM.org to use and modify the source code for their own research. Any commercial application, redistribution, etc has to be arranged between users and authors individually and is not covered by OpenSLAM.org.<br><br>
+ ParallaxBA by  Liang Zhao, Shoudong Huang, Yanbiao Sun, Gamini Dissanayake is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
+</td></tr>
+</td></tr>
+<tr><td colspan=2>
+<br><br>
+ *** OpenSLAM.org is not responsible for the content of this webpage *** <br>
+ *** Copyright and V.i.S.d.P.: 
+Liang Zhao;
+<a href="http://services.eng.uts.edu.au/~sdhuang/index.htm" target="_blank">Shoudong Huang</a>;
+Yanbiao Sun;
+<a href="http://services.eng.uts.edu.au/~gdissa/index_files/gdissanayake.html" target="_blank">Gamini Dissanayake</a>;
+ *** <br>
+</td></tr>
+</table></center>
+</body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html> 
+
+<head>
+<title>OpenSLAM.org</title> 
+<meta name="description" content="OpenSLAM.org">
+<meta name="keywords"    content="OpenSLAM SLAM robot mapping localization research">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+<meta name="robots" content="index">
+<meta http-equiv="expires" content="Sat, 01 Dec 2001 00:00:00 GMT">
+<link rel="stylesheet" type="text/css" href="style2.css">
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-27001887-1']);
+  _gaq.push(['_setDomainName', 'openslam.org']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+<body bgcolor="#FFFFFF">
+<br>
+<br>
+<center>
+<img src="openslam-logo.png" border=0>
+</center>
+<br>
+<center><h2>FLIRTLib</h2></center><center><table width=700> <tr><tr><td colspan=2>
+
+	 FLIRTLib is a data association library to be used as a front end for graph based mapping, using RANSAC and multi-scale interest point. It implements four 
+	 different multi-scale feature detectors and two feature descriptors for 2D range data. It is written in C++ and provides an API reference  (written using 
+	 Doxygen) and a set of example binaries to visualize the detector results and the descriptors, as well as perform scan to scan matching.
+	
+<br><a href="http://www.informatik.uni-freiburg.de/~tipaldi/FLIRTLib/" target="_blank">Further information</a>
+</td></tr>
+</td></tr>
+ <tr><td colspan=2>
+
+<br><b>Authors</b><br>
+<a href="http://www.informatik.uni-freiburg.de/~tipaldi" target="_blank">Gian Diego Tipaldi</a>;
+<a href="http://www.informatik.uni-freiburg.de/~arras" target="_blank">Kai O. Arras</a>;
+</td></tr>
+
+<tr><td colspan=2>
+
+<br><b>Get the Source Code via SVN</b><br>
+svn co <a target="_blank" href="https://svn.openslam.org/data/svn/flirtlib">https://svn.openslam.org/data/svn/flirtlib</a><br>
+</td></tr>
+<tr><td colspan=2>
+
+<br> <b>Long Description</b><br>
+  
+	Local image features are used for a wide range of applications in computer vision and range imaging. While there is a great variety of detector-descriptor 
+        combinations for image data and 3D point clouds, there is no general method readily available for 2D range data.
+        To this end, we addressed the problem of multi-scale interest points for 2D range data.  Based on large-scale data sets for robot navigation, we defined a 
+	set of benchmark experiments as testbed for the comparison of detectors and descriptors for 2D range data.  The data sets have been globally registered by 
+	a SLAM algorithm serving as the ground truth. We then developed and compared a number of different detectors and descriptor approaches. We considered four
+	multi-scale detectors on the direct range signal, a descriptor based on the idea of occupancy grids and a shape context-based descriptor.
+        We finally  proposed  FLIRT  (Fast Laser Interest Region Transform)  as the most powerful detector-descriptor pair,  combining a detector based on a curve 
+        approximation of the range signal and a descriptor that encodes occupancy information in a polar region around the interest point.   It was found that the 
+        repeatability and precision diagrams have both, similar trends and values than the corresponding plots of detectors and descriptors for image data. 
+        
+	The library implements the following detectors: range, normal edge, normal blob and curvature. All detectors apply the scale-space theory (see References) 
+	to the range data.  The first three detectors apply the theory to the monodimensional signal defined by the laser scanner,  while the last one applies the 
+	theory to the continuous geodesic coordinate of the curve that better approximate the point cloud.<br><br>
+
+	    * Range detector. It finds interest points in scale-space with a blob detector applied on the raw range information in the laser scan.
+	    * Normal Edge detector. It finds interest points in scale-space with an edge detector applied on a local approximation of the normal direction.
+	    * Normal Blob detector. It finds interest points in scale-space with a blob detector applied on a local approximation of the normal direction.
+	    * Curvature detector. It finds interest points using the scale space theory for curves introduced by Unnikrishnan and Hebert.<br><br>
+
+	The library implements the following descritptors: shape context and beta-grid. <br><br>
+
+	    * Shape Context. It implements a local and linear version of the Shape Context introduced by Belongie and Malik.
+	    * Beta-Grid. It implements a linear-polar occupancy grid. It extends the Shape Context with the notion of free space.
+	
+<br><br></td></tr>
+<tr><td colspan=2>
+<b>Example Images</b><br>
+</td></tr>
+<tr>
+<td colspan=2><a href="http://srl.informatik.uni-freiburg.de/~tipaldi/RANSACSMALL.png"><img src="http://srl.informatik.uni-freiburg.de/~tipaldi/RANSACSMALL.png" border=0><a/><br>
+		
+		  Example matching with FLIRT and RANSAC</br></br>
+		  <object width="400" height="470" style="margin-right:15px; margin-bottom:15px;"><param name="movie" value="http://www.youtube.com/v/0b4vAI618eA&hl=en_US&fs=1&"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/0b4vAI618eA&hl=en_US&fs=1&" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="400" height="470"></embed></object></br>
+		  Nice animation of a single shot global localization in the Intel lab in Seattle
+		
+		</td>
+</tr>
+<tr><td colspan=2>
+
+<br> <b>Input Data </b><br>  The approach takes raw laser range data without
+	odometry. Odometry can be used to test the validity of the matching result
+</td></tr>
+<tr><td colspan=2>
+
+<br> <b>Logfile Format</b><br>   
+	Carmen log format
+	
+</td></tr>
+<tr><td colspan=2>
+
+<br> <b>Type of Map</b><br>  Feature maps and pose graphs
+</td></tr>
+<tr><td colspan=2>
+
+<br> <b> Hardware/Software Requirements</b><br> 
+
+	Linux/Unix, GCC 3.3/4.0.x
+	<br>
+
+	Boost >= 1.36 (submodules math and graph) 
+	<br>
+
+	Qt4 (gui only)
+	<br>
+
+	Qwt5 for Qt4 (gui only)
+	<br>
+
+	OpenGL (gui only)
+	<br>
+
+	Cairo (RANSAC test only)
+	<br>
+</td></tr>
+<tr><td colspan=2>
+
+<br><b>Documentation</b>
+<br><a href="http://www.informatik.uni-freiburg.de/~tipaldi/FLIRTLib/" target="_blank">FLIRTLib API Documentation and installing instructions</a>
+</td></tr>
+<tr><td colspan=2>
+
+<br> <b>Papers Describing the Approach</b>
+<br>   Gian Diego Tipaldi and Kai O. Arras:
+   FLIRT - Interest Regions for 2D Range Data,
+   In Proc. of the IEEE International Conference on Robotics and Automation (ICRA), 2010  (<a href="http://www.informatik.uni-freiburg.de/~tipaldi/papers/tipaldiICRA10.pdf" target="_blank">link</a>)<br>
+<br>   Gian Diego Tipaldi, Manuel Braun and Kai O. Arras:
+   FLIRT: Interest Regions for 2D Range Data with Applications to Robot Navigation,
+   In Proceedings of the International Symposium on Experimental Robotics, 2010  (<a href="http://www.informatik.uni-freiburg.de/~tipaldi/papers/tipaldiISER10.pdf" target="_blank">link</a>)<br>
+</td></tr>
+<tr><td colspan=2>
+
+<br><b>License Information</b><br>
+This software is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.<br> 
+The authors allow the users of OpenSLAM.org to use and modify the source code for their own research. Any commercial application, redistribution, etc has to be arranged between users and authors individually and is not covered by OpenSLAM.org.<br><br>
+
+		FLIRTLib is free software: you can redistribute it and/or modify it 
+		under the terms of the GNU Lesser General Public License as published 
+		by the Free Software Foundation, either version 3 of the License, or 
+		(at your option) any later version.<br><br>
+
+      		FLIRTLib is distributed in the hope that it will be useful,
+		but WITHOUT ANY WARRANTY; without even the implied warranty of
+		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+		GNU Lesser General Public License for more details.<br><br>
+
+		Copyright (C) 2009, 2010 Gian Diego Tipaldi and Kai O. Arras.
+	
+</td></tr>
+<tr><td colspan=2>
+<br>
+<b>Further Information</b><br>
+ 
+	The FLIRTLib is mainly meant to be used as a library for data association. If you have any problems installing the software, any questions or any 
+	comment please do not hesitate to contact me at tipaldi@informatik.uni-freiburg.de
+	 
+</td></tr>
+</td></tr>
+<tr><td colspan=2>
+<br><br>
+ *** OpenSLAM.org is not responsible for the content of this webpage *** <br>
+ *** Copyright and V.i.S.d.P.: 
+<a href="http://www.informatik.uni-freiburg.de/~tipaldi" target="_blank">Gian Diego Tipaldi</a>;
+<a href="http://www.informatik.uni-freiburg.de/~arras" target="_blank">Kai O. Arras</a>;
+ *** <br>
+</td></tr>
+</table></center>
+</body>
+</html>

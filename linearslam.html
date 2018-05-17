@@ -1,0 +1,160 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html> 
+
+<head>
+<title>OpenSLAM.org</title> 
+<meta name="description" content="OpenSLAM.org">
+<meta name="keywords"    content="OpenSLAM SLAM robot mapping localization research">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+<meta name="robots" content="index">
+<meta http-equiv="expires" content="Sat, 01 Dec 2001 00:00:00 GMT">
+<link rel="stylesheet" type="text/css" href="style2.css">
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-27001887-1']);
+  _gaq.push(['_setDomainName', 'openslam.org']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+<body bgcolor="#FFFFFF">
+<br>
+<br>
+<center>
+<img src="openslam-logo.png" border=0>
+</center>
+<br>
+<center><h2>Linear SLAM</h2></center><center><table width=700> <tr><tr><td colspan=2>
+
+	 Linear SLAM: A Linear Solution to the Feature-based, Pose Graph and D-SLAM based on Submap Joining.
+	
+</td></tr>
+</td></tr>
+ <tr><td colspan=2>
+
+<br><b>Authors</b><br>
+Liang Zhao;
+<a href="http://services.eng.uts.edu.au/~sdhuang/index.htm" target="_blank">Shoudong Huang</a>;
+<a href="http://services.eng.uts.edu.au/~gdissa/index_files/gdissanayake.html" target="_blank">Gamini Dissanayake</a>;
+</td></tr>
+
+<tr><td colspan=2>
+
+<br><b>Get the Source Code via SVN</b><br>
+svn co <a target="_blank" href="https://svn.openslam.org/data/svn/linearslam">https://svn.openslam.org/data/svn/linearslam</a><br>
+</td></tr>
+<tr><td colspan=2>
+
+<br> <b>Long Description</b><br>
+  
+	Linear SLAM is a strategy for large-scale pose
+	feature and pose graph SLAM through solving a sequence
+	of linear least squares problems. The algorithm is based
+	on building large-scale maps through submap joining, where
+	submaps are built using any existing SLAM technique that is
+	able to deal with a small size SLAM problem. It is demonstrated
+	that if submaps coordinate frames are judiciously selected, least
+	squares objective function for joining two submaps becomes a
+	quadratic function of the state vector. Therefore, solution to
+	a large-scale SLAM problem that requires joining a number
+	of local submaps either sequentially or in a more efficient
+	Divide and Conquer manner, can be obtained through solving a
+	sequence of linear least squares problems. The proposed Linear
+	SLAM technique is applicable to both feature-based, pose
+	graph and D-SLAM, in two and three dimensions, and does not require
+	any assumption on the character of the covariance matrices or
+	an initial guess of the state vector. Although this algorithm is
+	still an approximation to the optimal full nonlinear least squares
+	SLAM, simulations and experiments using publicly available
+	datasets in 2D and 3D show that Linear SLAM produces results
+	that are very close to the best solutions that can be obtained
+	using full nonlinear least squares optimization algorithm started
+	from an accurate initial value.
+	
+<br><br></td></tr>
+<tr><td colspan=2>
+<b>Example Images</b><br>
+</td></tr>
+<tr>
+<td colspan=2><a href="http://services.eng.uts.edu.au/~sdhuang/VicPark6898.jpg"><img src="http://services.eng.uts.edu.au/~sdhuang/VicPark6898.png" border=0><a/><br>Result of Victoria Park 2D pose feature dataset</td>
+</tr>
+<tr>
+<td colspan=2><a href="http://services.eng.uts.edu.au/~sdhuang/DLR3298.jpg"><img src="http://services.eng.uts.edu.au/~sdhuang/DLR3298.png" border=0><a/><br>Result of DLR 2D pose feature dataset</td>
+</tr>
+<tr>
+<td colspan=2><a href="http://services.eng.uts.edu.au/~sdhuang/Intel.jpg"><img src="http://services.eng.uts.edu.au/~sdhuang/Intel.png" border=0><a/><br>Result of Intel 2D pose graph dataset</td>
+</tr>
+<tr>
+<td colspan=2><a href="http://services.eng.uts.edu.au/~sdhuang/parking_garage.jpg"><img src="http://services.eng.uts.edu.au/~sdhuang/parking_garage.png" border=0><a/><br>Result of Parking Garage 3D pose graph dataset</td>
+</tr>
+<tr><td colspan=2>
+
+<br> <b>Input Data </b><br>  The input to the Linear SLAM algorithm is a sequence of local submaps. Each local map contains a state vector estimate and the corresponding information matrix.
+</td></tr>
+<tr><td colspan=2>
+
+<br> <b>Logfile Format</b><br>   
+	mat file for MATLAB code, text file for C/C++ code
+	
+</td></tr>
+<tr><td colspan=2>
+
+<br> <b>Type of Map</b><br>  Pose feature or pose graph map
+</td></tr>
+<tr><td colspan=2>
+
+<br> <b> Hardware/Software Requirements</b><br> 
+
+	Matlab, or
+	<br>
+
+	Windows, Microsoft Visual Studio, or
+	<br>
+
+	Linux/Unix
+	<br>
+</td></tr>
+<tr><td colspan=2>
+
+<br><b>Documentation</b>
+<br><a href="http://services.eng.uts.edu.au/~sdhuang/Documentation_Linear_SLAM.pdf" target="_blank">Documentation for Linear SLAM MATLAB and C/C++ Source Code</a>
+</td></tr>
+<tr><td colspan=2>
+
+<br> <b>Papers Describing the Approach</b>
+<br>   Liang Zhao, Shoudong Huang and Gamini Dissanayake:
+   Linear SLAM: A Linear Solution to the Feature-based and Pose Graph SLAM based on Submap Joining,
+   IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), 2013  (<a href="http://services.eng.uts.edu.au/~sdhuang/Linear_SLAM_IROS13.pdf" target="_blank">link</a>)<br>
+</td></tr>
+<tr><td colspan=2>
+
+<br><b>License Information</b><br>
+This software is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.<br> 
+The authors allow the users of OpenSLAM.org to use and modify the source code for their own research. Any commercial application, redistribution, etc has to be arranged between users and authors individually and is not covered by OpenSLAM.org.<br><br>
+
+	  Linear SLAM by Liang Zhao, Shoudong Huang, Gamini Dissanayake is
+	  licensed under a Creative Commons Attribution-NonCommercial-ShareAlike
+	  3.0 Unported License.
+	
+</td></tr>
+</td></tr>
+<tr><td colspan=2>
+<br><br>
+ *** OpenSLAM.org is not responsible for the content of this webpage *** <br>
+ *** Copyright and V.i.S.d.P.: 
+Liang Zhao;
+<a href="http://services.eng.uts.edu.au/~sdhuang/index.htm" target="_blank">Shoudong Huang</a>;
+<a href="http://services.eng.uts.edu.au/~gdissa/index_files/gdissanayake.html" target="_blank">Gamini Dissanayake</a>;
+ *** <br>
+</td></tr>
+</table></center>
+</body>
+</html>

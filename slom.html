@@ -1,0 +1,124 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html> 
+
+<head>
+<title>OpenSLAM.org</title> 
+<meta name="description" content="OpenSLAM.org">
+<meta name="keywords"    content="OpenSLAM SLAM robot mapping localization research">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+<meta name="robots" content="index">
+<meta http-equiv="expires" content="Sat, 01 Dec 2001 00:00:00 GMT">
+<link rel="stylesheet" type="text/css" href="style2.css">
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-27001887-1']);
+  _gaq.push(['_setDomainName', 'openslam.org']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+<body bgcolor="#FFFFFF">
+<br>
+<br>
+<center>
+<img src="openslam-logo.png" border=0>
+</center>
+<br>
+<center><h2>SLoM - Sparse Least Squares on Manifolds</h2></center><center><table width=700> <tr><tr><td colspan=2>
+
+	  The SLoM-Framework provides a framework to optimize arbitrary Least-Square Problems on Manifolds.
+	  This version of SLoM is out-dated and merely provided for historic reasons. 
+	  SLoM is now part of the Manifold ToolKit (MTK) which is also available on OpenSLAM.
+	
+<br><a href="http://openslam.org/MTK.html" target="_blank">Further information</a>
+</td></tr>
+</td></tr>
+ <tr><td colspan=2>
+
+<br><b>Authors</b><br>
+<a href="http://www.informatik.uni-bremen.de/agebv/en/ChristophHertzberg" target="_blank">Christoph Hertzberg</a>;
+<a href="http://www.informatik.uni-bremen.de/agebv/en/UdoFrese" target="_blank">Udo Frese</a>;
+</td></tr>
+
+<tr><td colspan=2>
+
+<br><b>Get the Source Code via SVN</b><br>
+svn co <a target="_blank" href="https://svn.openslam.org/data/svn/slom">https://svn.openslam.org/data/svn/slom</a><br>
+</td></tr>
+<tr><td colspan=2>
+
+<br> <b>Long Description</b><br>
+  
+	  The SLoM framework originated from a diploma thesis (see papers below). 
+	  It provides a framework to optimize arbitrary least-squares problems on manifolds, which includes most feature based SLAM-Problems.
+	  So far the framework only provides the actual optimization part, i.e. for sensor models etc have to be modeled and implemented for each particular problem.
+	  It features some examples for common problems like pure pose-relation or odometry and landmarks.
+	  
+	  One of the advantages of SLoM is that it can solve not only SLAM problems, but also other least-square problems like calibration problems. 
+	
+<br><br></td></tr>
+<tr><td colspan=2>
+
+<br> <b>Input Data </b><br>  
+	  SLoM only provides a framework, so many kinds of input data can be used.
+	
+</td></tr>
+<tr><td colspan=2>
+
+<br> <b>Logfile Format</b><br>  
+	  SLoM only provides a framework, so any logformat for which a reader exists can be used.
+	
+</td></tr>
+<tr><td colspan=2>
+
+<br> <b>Type of Map</b><br>  
+	  SLoM can be used to generate any kind of feature based maps.
+	
+</td></tr>
+<tr><td colspan=2>
+
+<br> <b> Hardware/Software Requirements</b><br> 
+
+	  SLoM was developed and tested under gcc 3.4.4 and 4.3.2.
+	<br>
+
+	  SLoM requires the CSparse package available at http://www.cise.ufl.edu/research/sparse/CSparse/.
+	<br>
+</td></tr>
+<tr><td colspan=2>
+
+<br> <b>Papers Describing the Approach</b>
+<br>   C. Hertzberg:
+   A Framework for Sparse, Non-Linear Least Squares
+Problems on Manifolds,
+   Diploma Thesis, University of Bremen, 2008  (<a href="http://www.informatik.uni-bremen.de/agebv/downloads/published/hertzberg_thesis_08.pdf" target="_blank">link</a>)<br>
+</td></tr>
+<tr><td colspan=2>
+
+<br><b>License Information</b><br>
+This software is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.<br> 
+The authors allow the users of OpenSLAM.org to use and modify the source code for their own research. Any commercial application, redistribution, etc has to be arranged between users and authors individually and is not covered by OpenSLAM.org.<br><br>
+
+	  For further license information, please contact the authors.
+	
+</td></tr>
+</td></tr>
+<tr><td colspan=2>
+<br><br>
+ *** OpenSLAM.org is not responsible for the content of this webpage *** <br>
+ *** Copyright and V.i.S.d.P.: 
+<a href="http://www.informatik.uni-bremen.de/agebv/en/ChristophHertzberg" target="_blank">Christoph Hertzberg</a>;
+<a href="http://www.informatik.uni-bremen.de/agebv/en/UdoFrese" target="_blank">Udo Frese</a>;
+ *** <br>
+</td></tr>
+</table></center>
+</body>
+</html>
